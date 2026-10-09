@@ -1,0 +1,28 @@
+{
+  "name": "freelance-gigs-studio",
+  "version": "1.0.0",
+  "description": "Studio d'ingénierie, d'optimisation et d'export de microservices pour ComeUp et Fiverr",
+  "main": "core/gig-validator.js",
+  "type": "module",
+  "scripts": {
+    "validate": "node core/gig-validator.js",
+    "export": "node core/export-gigs.js",
+    "test": "node core/gig-validator.js && node test/validator-test.js",
+    "start": "node dashboard/server.js"
+  },
+  "keywords": [
+    "freelance",
+    "comeup",
+    "fiverr",
+    "gig-optimizer",
+    "rag",
+    "laravel"
+  ],
+  "author": "Angelo Lock To Hang",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "playwright": "^1.50.1"
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "id": "gig-002",
+  "slug": "laravel-fullstack",
+  "title_internal": "Développement Web Fullstack & Maintenance Laravel / React",
+  "category": "Web Development & Maintenance",
+  "createdAt": "2026-10-09",
+  "meta": {
+    "author": "Angelo Lock To Hang",
+    "experienceYears": 6,
+    "positioning": "Ingénieur Fullstack Senior (Laravel & React)",
+    "valueEquation": {
+      "dreamOutcome": "Application web ou API REST hautement performante, sécurisée et maintenable en production, sans régression ni dette technique.",
+      "perceivedLikelihood": "6+ ans d'expérience en ingénierie logicielle (Laravel 10/11, React, Tailwind, PostgreSQL/MySQL), architecture solide (PSR/SOLID), tests unitaires et intégration continue.",
+      "timeDelay": "Livraison en 2 à 7 jours selon le périmètre du service.",
+      "effortSacrifice": "Prise en charge intégrale du code, documentation d'API complète, déploiement automatisé ou conteneurisé."
+    },
+    "pricingTiers": {
+      "strategy": "Modèle asymétrique 3 paliers valorisant le palier Standard",
+      "targetConversionTier": "Standard"
+    }
+  },
+  "platforms": {
+    "comeup": {
+      "title": "Je vais développer ou optimiser votre application web Laravel et React",
+      "category": "Développement & Programmation",
+      "subcategory": "Sites Web & Applications",
+      "baseOffer": {
+        "name": "Diagnostic d'urgence & Résolution d'un bug bloquant",
+        "price": 35,
+        "deliveryDays": 2,
+        "description": "Analyse rigoureuse de votre code, identification de la source du dysfonctionnement (PHP, Laravel, base de données ou React) et application du correctif testé.",
+        "deliverables": [
+          "Identification et correction complète d'1 bug critique ou anomalie de logique",
+          "Vérification des impacts de régression sur le reste de l'application",
+          "Rapport succinct expliquant l'origine de l'erreur et les bonnes pratiques associées",
+          "Livraison sous 48 heures"
+        ]
+      },
+      "options": [
+        {
+          "name": "Option Standard - API REST & Module Métier Complet",
+          "price": 180,
+          "additionalDays": 4,
+          "description": "Développement d'une API REST sécurisée (Laravel Sanctum/JWT) ou ajout d'un module complet (paiement Stripe, gestion abonnements, webhooks, exports de rapports, notifications).",
+          "deliverables": [
+            "Conception de l'architecture RESTful avec contrôleurs de ressources et form requests",
+            "Authentification sécurisée (Laravel Sanctum ou Passport)",
+            "Intégration d'un module métier ou service tiers (Stripe, PayPal, Mailgun, AWS S3)",
+            "Documentation des endpoints au format OpenAPI / Postman",
+            "Tests fonctionnels PHPUnit/Pest pour sécuriser les routes"
+          ]
+        },
+        {
+          "name": "Option Entreprise - Application Web Sur-Mesure Clé en Main",
+          "price": 480,
+          "additionalDays": 7,
+          "description": "Développement sur-mesure d'une application web complète ou MVP avec backend Laravel 11, interface moderne React/Tailwind, authentification sécurisée, dashboard interactif et tests.",
+          "deliverables": [
+            "Tout le contenu de l'Option Standard inclus",
+            "Architecture fullstack complète (Laravel 11 + React / Inertia ou Blade / Tailwind)",
+            "Modélisation de la base de données relationnelle (MySQL ou PostgreSQL) avec migrations et seeders",
+            "Interface d'administration / dashboard réactif et ergonomique",
+            "Gestion des rôles et permissions (RBAC)",
+            "Conteneurisation Docker (Laravel Sail / docker-compose) et scripts de déploiement",
+            "Accompagnement et support post-livraison de 14 jours"
+          ]
+        },
+        {
+          "name": "Option Performance & Cache Redis",
+          "price": 90,
+          "additionalDays": 1,
+          "description": "Audit de performance approfondi, optimisation des requêtes SQL (résolution N+1), indexation des tables et mise en place d'une couche de cache Redis.",
+          "deliverables": [
+            "Audit des requêtes lentes avec Laravel Telescope / Debugbar",
+            "Optimisation des requêtes Eloquent et indexation de la base de données",
+            "Configuration du cache de requêtes et de sessions avec Redis",
+            "Réduction mesurable du temps de réponse TTFB"
+          ]
+        }
+      ],
+      "description": "<h2>⚡ Donnez à votre application web la robustesse et la rapidité d'une solution professionnelle</h2><p>Vous rencontrez un bug bloquant sur votre application Laravel ? Vous avez besoin de développer une <strong>API REST sécurisée</strong> ou une <strong>application web sur-mesure</strong> combinant la puissance de Laravel et la réactivité de React ?</p><p>Ingénieur Fullstack fort de <strong>plus de 6 années d'expérience</strong> dans la conception de plateformes web en production, je vous accompagne pour délivrer un code propre, testé et scalable.</p><hr><h3>🎯 Pourquoi confier votre développement à un ingénieur expérimenté ?</h3><ul><li><strong>Architecture Professionnelle :</strong> Respect strict des standards PSR-12, des principes SOLID et de la séparation des responsabilités.</li><li><strong>Sécurité Maximale :</strong> Protection native contre les failles OWASP (injections SQL, CSRF, XSS, contrôle strict des autorisations).</li><li><strong>Performance Optimisée :</strong> Élimination des requêtes N+1, indexation BDD intelligente et mise en cache performante.</li><li><strong>Technologies Modernes :</strong> PHP 8.2+, Laravel 10/11, React, Tailwind CSS, MySQL, PostgreSQL, Docker.</li></ul><hr><h3>📦 Détail de l'Offre de Base (35 €)</h3><p>Idéale pour débloquer immédiatement une situation d'urgence :</p><ul><li>Diagnostic rigoureux de votre code et reproduction de l'anomalie.</li><li>Résolution complète d'un bug bloquant (PHP, Eloquent, API ou React).</li><li>Test de non-régression et rapport explicatif clair.</li><li>Livraison rapide sous 48h.</li></ul><hr><h3>⚡ Passez au niveau supérieur avec les Options Complètes</h3><ul><li><strong>Option Standard (+180 €) :</strong> Développement d'une API REST sécurisée, module Stripe ou fonctionnalité métier complexe avec tests.</li><li><strong>Option Entreprise (+480 €) :</strong> Application web complète sur-mesure clé en main (Laravel 11, React, dashboard, rôles, Docker).</li><li><strong>Option Performance (+90 €) :</strong> Optimisation BDD, élimination des lenteurs et intégration du cache Redis.</li></ul><hr><h3>🛡️ Mes Engagements Qualité</h3><ul><li><strong>Code 100% propre et documenté :</strong> Facile à maintenir et à faire évoluer par n'importe quel développeur.</li><li><strong>Support inclus :</strong> Assistance technique post-livraison pour vous accompagner dans la prise en main.</li><li><strong>Satisfaction garantie :</strong> Ajustements inclus jusqu'à validation complète de votre cahier des charges.</li></ul><p><em>Un projet à développer ou une question technique ? Contactez-moi directement via ComeUp pour échanger sur vos spécifications !</em></p>",
+      "faq": [
+        {
+          "question": "Quelles versions de Laravel prenez-vous en charge ?",
+          "answer": "J'interviens de Laravel 8 à la version 11 actuelle, avec des environnements PHP 8.1 à 8.3. Je peux également assurer des migrations de versions antérieures."
+        },
+        {
+          "question": "Comment s'organise l'accès à mon code source ?",
+          "answer": "Vous pouvez m'ajouter en collaborateur sur votre dépôt GitHub, GitLab ou Bitbucket, ou bien me transmettre une archive sécurisée du projet."
+        },
+        {
+          "question": "Fournissez-vous des tests automatisés ?",
+          "answer": "Oui, les options Standard et Entreprise incluent des tests fonctionnels et unitaires (PHPUnit ou Pest) garantissant la non-régression de vos fonctionnalités."
+        },
+        {
+          "question": "Pouvez-vous déployer l'application sur mon serveur ?",
+          "answer": "Tout à fait. Je configure des environnements de production avec Docker, Nginx, ou sur des plateformes comme Forge, DigitalOcean, AWS ou VPS dédié."
+        }
+      ]
+    },
+    "fiverr": {
+      "title": "I will build secure fullstack web apps with Laravel and React",
+      "category": "Programming & Tech",
+      "subcategory": "Web Applications",
+      "tags": [
+        "laravel",
+        "react-js",
+        "fullstack-developer",
+        "rest-api",
+        "php-developer"
+      ],
+      "packages": {
+        "basic": {
+          "name": "Bug Fix & Optimization",
+          "price": 50,
+          "deliveryDays": 2,
+          "revisions": 1,
+          "description": "Rapid diagnosis and resolution of 1 critical bug or SQL performance bottleneck.",
+          "features": [
+            "Root-cause diagnosis of 1 critical issue",
+            "Clean code patch with regression test",
+            "Detailed bug fix summary report",
+            "Turnaround within 48 hours"
+          ]
+        },
+        "standard": {
+          "name": "Custom API & Features",
+          "price": 190,
+          "deliveryDays": 4,
+          "revisions": 2,
+          "description": "Secure RESTful API endpoints, payment webhook, or database feature with tests.",
+          "features": [
+            "RESTful API endpoints with token auth (Sanctum/JWT)",
+            "Third-party integration (Stripe, PayPal, webhooks)",
+            "Database migrations and Eloquent optimization",
+            "PHPUnit or Pest automated tests",
+            "API documentation via Postman/OpenAPI"
+          ]
+        },
+        "premium": {
+          "name": "Fullstack Web Application",
+          "price": 520,
+          "deliveryDays": 7,
+          "revisions": 3,
+          "description": "Complete web app with Laravel 11 backend, React frontend, auth, and deployment.",
+          "features": [
+            "Everything in Standard tier included",
+            "Complete Laravel 11 backend architecture",
+            "Modern responsive React / Tailwind CSS frontend",
+            "Role-based access control (RBAC)",
+            "Docker containerization (Sail / docker-compose)",
+            "Production deployment guide and 14 days support"
+          ]
+        }
+      },
+      "description": "Need a scalable web application, secure REST API, or fast resolution for a Laravel issue?\n\nI am a Senior Fullstack Engineer with 6+ years of experience architecting production platforms with Laravel, PHP, React, and modern SQL databases.\n\nWhat I deliver:\n- Fullstack Web Apps: Laravel 11 backend with React or Blade frontends and Tailwind CSS.\n- Secure RESTful APIs: Token authentication (Sanctum/JWT), rate limiting, and API docs.\n- Performance Tuning: Database query optimization (N+1 fixes, indexing) and Redis caching.\n- Third-Party Integrations: Stripe/PayPal billing, webhooks, and external APIs.\n\nWhy choose this gig?\n- 6+ Years Experience: Clean code respecting PSR-12, SOLID design, and OWASP security.\n- Automated Testing: PHPUnit or Pest tests ensuring zero regressions.\n- Production Ready: Docker setup, deployment guide, and post-delivery support.\n\nPackages:\n- Basic ($50): Bug fix or performance bottleneck resolution.\n- Standard ($190): Custom API feature or external integration.\n- Premium ($520): Fullstack web application built from scratch.\n\nContact me before ordering to align on specifications!",
+      "requirements": [
+        "What is the functional goal and user scope of your project or bug fix?",
+        "Do you have an existing repository (GitHub/GitLab) or is this a greenfield project?",
+        "Are there any specific third-party APIs or hosting environments required (AWS, VPS, Docker)?"
+      ],
+      "faq": [
+        {
+          "question": "Which versions of Laravel and PHP do you support?",
+          "answer": "I support Laravel versions from 8 to the latest 11+, paired with modern PHP 8.1 through 8.3."
+        },
+        {
+          "question": "Do you provide automated tests for code reliability?",
+          "answer": "Yes, automated test suites (PHPUnit or Pest) are written for Standard and Premium packages to ensure zero regression."
+        },
+        {
+          "question": "Can you handle deployment to my server?",
+          "answer": "Yes, I can configure Docker, Laravel Forge, DigitalOcean, or standard VPS servers for production-ready deployment."
+        }
+      ]
+    }
+  }
+}
