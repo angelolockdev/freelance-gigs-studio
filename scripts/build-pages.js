@@ -14,16 +14,13 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT_DIR = path.resolve(__dirname, '..');
 
-const OUT_DIR = path.join(ROOT_DIR, 'public-pages');
+const OUT_DIR = path.join(ROOT_DIR, 'docs');
 const THUMBNAILS_SRC = path.join(ROOT_DIR, 'data/output/thumbnails');
 const EXPORTS_SRC = path.join(ROOT_DIR, 'data/output/exports');
 const ASSETS_SRC = path.join(ROOT_DIR, 'data/assets');
 const GIGS_SRC = path.join(ROOT_DIR, 'data/gigs');
 
-// 1. Nettoyer et initialiser le dossier de sortie
-if (fs.existsSync(OUT_DIR)) {
-  fs.rmSync(OUT_DIR, { recursive: true, force: true });
-}
+// 1. Initialiser le dossier de sortie
 fs.mkdirSync(OUT_DIR, { recursive: true });
 
 // Helper pour copier récursivement
