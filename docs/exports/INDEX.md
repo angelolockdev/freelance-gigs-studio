@@ -1,6 +1,6 @@
 # 📁 Freelance Gigs Studio - Catalogue des Exports
 
-Dernière compilation : 2026-10-10T20:29:27.470Z
+Dernière compilation : 2026-10-11T15:18:41.108Z
 
 | Gig ID | Titre Interne | ComeUp (FR) | Fiverr (EN) | Paliers ComeUp | Paliers Fiverr |
 | :--- | :--- | :--- | :--- | :--- | :--- |

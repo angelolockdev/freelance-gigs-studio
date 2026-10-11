@@ -125,7 +125,7 @@ const showcaseHtml = `<!DOCTYPE html>
         <div class="bg-slate-900/90 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition-all flex flex-col">
           <!-- Thumbnail header preview -->
           <div class="relative aspect-[16/9] bg-slate-950 overflow-hidden border-b border-slate-800">
-            <img src="thumbnails/${gig.id}-comeup-dark-tech.webp" alt="${gig.meta.name}" class="w-full h-full object-cover">
+            <img src="thumbnails/${gig.slug}-comeup-dark-tech.webp" alt="${gig.title_internal || gig.slug}" class="w-full h-full object-cover">
             <span class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur border border-slate-700 text-xs px-2.5 py-1 rounded-full font-mono text-cyan-400">
               ${gig.category.toUpperCase()}
             </span>
@@ -133,7 +133,7 @@ const showcaseHtml = `<!DOCTYPE html>
 
           <div class="p-6 flex-1 flex flex-col justify-between">
             <div>
-              <h3 class="text-xl font-bold text-white mb-3">${gig.meta.name}</h3>
+              <h3 class="text-xl font-bold text-white mb-3">${gig.title_internal || gig.slug}</h3>
               
               <!-- ComeUp Summary -->
               <div class="mb-4 p-3.5 bg-slate-950/70 rounded-xl border border-slate-800/80">
@@ -164,10 +164,10 @@ const showcaseHtml = `<!DOCTYPE html>
 
             <!-- Action buttons -->
             <div class="flex flex-wrap gap-2.5 pt-2 border-t border-slate-800/60">
-              <a href="exports/${gig.id}-comeup.html" target="_blank" class="flex-1 text-center bg-cyan-950/80 hover:bg-cyan-900 text-cyan-300 border border-cyan-800/60 py-2 px-3 rounded-lg text-xs font-semibold transition-all">
+              <a href="exports/${gig.slug}-comeup.html" target="_blank" class="flex-1 text-center bg-cyan-950/80 hover:bg-cyan-900 text-cyan-300 border border-cyan-800/60 py-2 px-3 rounded-lg text-xs font-semibold transition-all">
                 Ouvrir ComeUp (HTML)
               </a>
-              <a href="exports/${gig.id}-fiverr.md" target="_blank" class="flex-1 text-center bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 border border-emerald-800/60 py-2 px-3 rounded-lg text-xs font-semibold transition-all">
+              <a href="exports/${gig.slug}-fiverr.md" target="_blank" class="flex-1 text-center bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 border border-emerald-800/60 py-2 px-3 rounded-lg text-xs font-semibold transition-all">
                 Voir Fiverr (MD)
               </a>
             </div>
@@ -186,39 +186,39 @@ const showcaseHtml = `<!DOCTYPE html>
 
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden group">
-        <a href="thumbnails/ai-rag-agent-dark-tech.png" target="_blank">
+        <a href="thumbnails/ai-rag-agent-dark-tech.webp" target="_blank">
           <img src="thumbnails/ai-rag-agent-dark-tech.webp" alt="AI RAG Dark Tech" class="w-full aspect-[16/9] object-cover group-hover:scale-105 transition-transform duration-300">
         </a>
         <div class="p-3 text-xs font-medium text-slate-300 flex justify-between items-center">
           <span>AI Agents • Dark Tech</span>
-          <span class="text-cyan-400 font-mono text-[10px]">PNG / WebP</span>
+          <span class="text-cyan-400 font-mono text-[10px]">WebP</span>
         </div>
       </div>
       <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden group">
-        <a href="thumbnails/ai-rag-agent-navy-corporate.png" target="_blank">
+        <a href="thumbnails/ai-rag-agent-navy-corporate.webp" target="_blank">
           <img src="thumbnails/ai-rag-agent-navy-corporate.webp" alt="AI RAG Navy Corporate" class="w-full aspect-[16/9] object-cover group-hover:scale-105 transition-transform duration-300">
         </a>
         <div class="p-3 text-xs font-medium text-slate-300 flex justify-between items-center">
           <span>AI Agents • Corporate</span>
-          <span class="text-cyan-400 font-mono text-[10px]">PNG / WebP</span>
+          <span class="text-cyan-400 font-mono text-[10px]">WebP</span>
         </div>
       </div>
       <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden group">
-        <a href="thumbnails/laravel-fullstack-dark-tech.png" target="_blank">
+        <a href="thumbnails/laravel-fullstack-dark-tech.webp" target="_blank">
           <img src="thumbnails/laravel-fullstack-dark-tech.webp" alt="Laravel Dark Tech" class="w-full aspect-[16/9] object-cover group-hover:scale-105 transition-transform duration-300">
         </a>
         <div class="p-3 text-xs font-medium text-slate-300 flex justify-between items-center">
           <span>Laravel • Dark Tech</span>
-          <span class="text-cyan-400 font-mono text-[10px]">PNG / WebP</span>
+          <span class="text-cyan-400 font-mono text-[10px]">WebP</span>
         </div>
       </div>
       <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden group">
-        <a href="thumbnails/laravel-fullstack-navy-corporate.png" target="_blank">
+        <a href="thumbnails/laravel-fullstack-navy-corporate.webp" target="_blank">
           <img src="thumbnails/laravel-fullstack-navy-corporate.webp" alt="Laravel Navy Corporate" class="w-full aspect-[16/9] object-cover group-hover:scale-105 transition-transform duration-300">
         </a>
         <div class="p-3 text-xs font-medium text-slate-300 flex justify-between items-center">
           <span>Laravel • Corporate</span>
-          <span class="text-cyan-400 font-mono text-[10px]">PNG / WebP</span>
+          <span class="text-cyan-400 font-mono text-[10px]">WebP</span>
         </div>
       </div>
     </div>
