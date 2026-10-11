@@ -2,14 +2,18 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ComeUp Export - laravel-fullstack</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #1e293b; max-width: 900px; margin: 40px auto; padding: 0 20px; background: #f8fafc; }
-    .card { background: white; border-radius: 12px; padding: 28px; margin-bottom: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #1e293b; max-width: 960px; margin: 40px auto; padding: 0 20px; background: #f8fafc; }
+    .card { background: white; border-radius: 12px; padding: 28px; margin-bottom: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; position: relative; }
     h1 { color: #0f172a; border-bottom: 2px solid #3b82f6; padding-bottom: 12px; margin-top: 0; }
-    h2 { color: #1e40af; margin-top: 24px; }
+    h2 { color: #1e40af; margin-top: 24px; display: flex; align-items: center; justify-content: space-between; }
     h3 { color: #1e293b; }
     .badge { display: inline-block; padding: 4px 10px; border-radius: 9999px; font-size: 12px; font-weight: 600; background: #dbeafe; color: #1e40af; margin-right: 6px; }
+    .copy-btn { background: #3b82f6; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; }
+    .copy-btn:hover { background: #2563eb; }
+    .copy-btn.copied { background: #10b981; }
     .copy-block { position: relative; background: #0f172a; color: #f8fafc; padding: 20px; border-radius: 8px; font-family: monospace; font-size: 13px; white-space: pre-wrap; word-break: break-all; max-height: 350px; overflow-y: auto; }
     .preview-box { border: 2px dashed #94a3b8; border-radius: 8px; padding: 24px; background: #ffffff; }
     table { width: 100%; border-collapse: collapse; margin-top: 12px; }
@@ -17,40 +21,63 @@
     th { background: #f1f5f9; color: #475569; font-weight: 600; }
     .price-tag { font-size: 16px; font-weight: 700; color: #059669; }
     .faq-item { margin-bottom: 16px; padding: 12px; background: #f8fafc; border-left: 4px solid #3b82f6; border-radius: 4px; }
+    .flex-between { display: flex; justify-content: space-between; align-items: center; }
   </style>
+  <script>
+    function copyTarget(id, btn) {
+      const el = document.getElementById(id);
+      const text = el.innerText || el.textContent;
+      navigator.clipboard.writeText(text.trim()).then(() => {
+        const oldText = btn.innerText;
+        btn.innerText = '✅ Copié !';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerText = oldText;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
 </head>
 <body>
 
   <h1>🚀 ComeUp - Fiche Prête à l'Emploi : Développement Web Fullstack &amp; Maintenance Laravel / React</h1>
-  <p><strong>Auteur :</strong> Angelo Lock To Hang | <strong>Expérience :</strong> 6+ ans | <strong>Généré le :</strong> 09/10/2026</p>
+  <p><strong>Auteur :</strong> Angelo Lock To Hang | <strong>Expérience :</strong> 6+ ans | <strong>Généré le :</strong> 10/10/2026</p>
 
   <!-- PARAMÈTRES DU FORMULAIRE -->
   <div class="card">
-    <h2>📋 Informations Générales du Service</h2>
+    <h2>
+      <span>📋 Informations Générales du Service</span>
+    </h2>
     <table>
       <tr>
         <th style="width: 25%;">Champ ComeUp</th>
         <th>Valeur à coller</th>
+        <th style="width: 15%;">Action</th>
       </tr>
       <tr>
         <td><strong>Titre du service</strong></td>
-        <td><strong style="color: #2563eb; font-size: 16px;">Je vais développer ou optimiser votre application web Laravel et React</strong> (70 caractères)</td>
+        <td><strong id="comeup-title" style="color: #2563eb; font-size: 16px;">Je vais développer ou optimiser votre application web Laravel et React</strong> (70 caractères)</td>
+        <td><button class="copy-btn" onclick="copyTarget('comeup-title', this)">Copier</button></td>
       </tr>
       <tr>
         <td><strong>Catégorie</strong></td>
-        <td>Développement &amp; Programmation &gt; Sites Web &amp; Applications</td>
+        <td id="comeup-category">Développement &amp; Programmation &gt; Sites Web &amp; Applications</td>
+        <td><button class="copy-btn" onclick="copyTarget('comeup-category', this)">Copier</button></td>
       </tr>
       <tr>
         <td><strong>Prix de base</strong></td>
         <td><span class="price-tag">35 €</span> (Délai : 2 jours)</td>
+        <td></td>
       </tr>
       <tr>
         <td><strong>Description de base</strong></td>
-        <td>Analyse rigoureuse de votre code, identification de la source du dysfonctionnement (PHP, Laravel, base de données ou React) et application du correctif testé.</td>
+        <td id="comeup-base-desc">Analyse rigoureuse de votre code, identification de la source du dysfonctionnement (PHP, Laravel, base de données ou React) et application du correctif testé.</td>
+        <td><button class="copy-btn" onclick="copyTarget('comeup-base-desc', this)">Copier</button></td>
       </tr>
       <tr>
         <td><strong>Livrables inclus</strong></td>
-        <td>
+        <td colspan="2">
           <ul>
             <li>Identification et correction complète d&#039;1 bug critique ou anomalie de logique</li>
 <li>Vérification des impacts de régression sur le reste de l&#039;application</li>
@@ -64,7 +91,9 @@
 
   <!-- TABLEAU DES OPTIONS -->
   <div class="card">
-    <h2>⚡ Options Complémentaires</h2>
+    <h2>
+      <span>⚡ Options Complémentaires</span>
+    </h2>
     <table>
       <thead>
         <tr>
@@ -72,38 +101,42 @@
           <th>Tarif</th>
           <th>Délai add.</th>
           <th>Description & Livrables</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
         
         <tr>
-          <td><strong>Option Standard - API REST &amp; Module Métier Complet</strong></td>
+          <td><strong id="opt-name-0">Option Standard - API REST &amp; Module Métier Complet</strong></td>
           <td><span class="price-tag">+180 €</span></td>
           <td>+4 jour(s)</td>
           <td>
-            <p>Développement d&#039;une API REST sécurisée (Laravel Sanctum/JWT) ou ajout d&#039;un module complet (paiement Stripe, gestion abonnements, webhooks, exports de rapports, notifications).</p>
+            <p id="opt-desc-0">Développement d&#039;une API REST sécurisée (Laravel Sanctum/JWT) ou ajout d&#039;un module complet (paiement Stripe, gestion abonnements, webhooks, exports de rapports, notifications).</p>
             <ul><li><small>Conception de l&#039;architecture RESTful avec contrôleurs de ressources et form requests</small></li><li><small>Authentification sécurisée (Laravel Sanctum ou Passport)</small></li><li><small>Intégration d&#039;un module métier ou service tiers (Stripe, PayPal, Mailgun, AWS S3)</small></li><li><small>Documentation des endpoints au format OpenAPI / Postman</small></li><li><small>Tests fonctionnels PHPUnit/Pest pour sécuriser les routes</small></li></ul>
           </td>
+          <td><button class="copy-btn" onclick="copyTarget('opt-desc-0', this)">Copier Desc</button></td>
         </tr>
         
         <tr>
-          <td><strong>Option Entreprise - Application Web Sur-Mesure Clé en Main</strong></td>
+          <td><strong id="opt-name-1">Option Entreprise - Application Web Sur-Mesure Clé en Main</strong></td>
           <td><span class="price-tag">+480 €</span></td>
           <td>+7 jour(s)</td>
           <td>
-            <p>Développement sur-mesure d&#039;une application web complète ou MVP avec backend Laravel 11, interface moderne React/Tailwind, authentification sécurisée, dashboard interactif et tests.</p>
+            <p id="opt-desc-1">Développement sur-mesure d&#039;une application web complète ou MVP avec backend Laravel 11, interface moderne React/Tailwind, authentification sécurisée, dashboard interactif et tests.</p>
             <ul><li><small>Tout le contenu de l&#039;Option Standard inclus</small></li><li><small>Architecture fullstack complète (Laravel 11 + React / Inertia ou Blade / Tailwind)</small></li><li><small>Modélisation de la base de données relationnelle (MySQL ou PostgreSQL) avec migrations et seeders</small></li><li><small>Interface d&#039;administration / dashboard réactif et ergonomique</small></li><li><small>Gestion des rôles et permissions (RBAC)</small></li><li><small>Conteneurisation Docker (Laravel Sail / docker-compose) et scripts de déploiement</small></li><li><small>Accompagnement et support post-livraison de 14 jours</small></li></ul>
           </td>
+          <td><button class="copy-btn" onclick="copyTarget('opt-desc-1', this)">Copier Desc</button></td>
         </tr>
         
         <tr>
-          <td><strong>Option Performance &amp; Cache Redis</strong></td>
+          <td><strong id="opt-name-2">Option Performance &amp; Cache Redis</strong></td>
           <td><span class="price-tag">+90 €</span></td>
           <td>+1 jour(s)</td>
           <td>
-            <p>Audit de performance approfondi, optimisation des requêtes SQL (résolution N+1), indexation des tables et mise en place d&#039;une couche de cache Redis.</p>
+            <p id="opt-desc-2">Audit de performance approfondi, optimisation des requêtes SQL (résolution N+1), indexation des tables et mise en place d&#039;une couche de cache Redis.</p>
             <ul><li><small>Audit des requêtes lentes avec Laravel Telescope / Debugbar</small></li><li><small>Optimisation des requêtes Eloquent et indexation de la base de données</small></li><li><small>Configuration du cache de requêtes et de sessions avec Redis</small></li><li><small>Réduction mesurable du temps de réponse TTFB</small></li></ul>
           </td>
+          <td><button class="copy-btn" onclick="copyTarget('opt-desc-2', this)">Copier Desc</button></td>
         </tr>
         
       </tbody>
@@ -112,9 +145,12 @@
 
   <!-- CODE HTML SOURCE POUR LA DESCRIPTION -->
   <div class="card">
-    <h2>📝 Description Complète (Code HTML Source à Copier)</h2>
+    <h2>
+      <span>📝 Description Complète (Code HTML Source à Copier)</span>
+      <button class="copy-btn" onclick="copyTarget('raw-html-description', this)">📋 Copier Tout le HTML</button>
+    </h2>
     <p><em>Copiez le code brut ci-dessous et collez-le directement en mode HTML dans l'éditeur de ComeUp :</em></p>
-    <div class="copy-block">&lt;h2&gt;⚡ Donnez à votre application web la robustesse et la rapidité d&#039;une solution professionnelle&lt;/h2&gt;&lt;p&gt;Vous rencontrez un bug bloquant sur votre application Laravel ? Vous avez besoin de développer une &lt;strong&gt;API REST sécurisée&lt;/strong&gt; ou une &lt;strong&gt;application web sur-mesure&lt;/strong&gt; combinant la puissance de Laravel et la réactivité de React ?&lt;/p&gt;&lt;p&gt;Ingénieur Fullstack fort de &lt;strong&gt;plus de 6 années d&#039;expérience&lt;/strong&gt; dans la conception de plateformes web en production, je vous accompagne pour délivrer un code propre, testé et scalable.&lt;/p&gt;&lt;hr&gt;&lt;h3&gt;🎯 Pourquoi confier votre développement à un ingénieur expérimenté ?&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Architecture Professionnelle :&lt;/strong&gt; Respect strict des standards PSR-12, des principes SOLID et de la séparation des responsabilités.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Sécurité Maximale :&lt;/strong&gt; Protection native contre les failles OWASP (injections SQL, CSRF, XSS, contrôle strict des autorisations).&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Performance Optimisée :&lt;/strong&gt; Élimination des requêtes N+1, indexation BDD intelligente et mise en cache performante.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Technologies Modernes :&lt;/strong&gt; PHP 8.2+, Laravel 10/11, React, Tailwind CSS, MySQL, PostgreSQL, Docker.&lt;/li&gt;&lt;/ul&gt;&lt;hr&gt;&lt;h3&gt;📦 Détail de l&#039;Offre de Base (35 €)&lt;/h3&gt;&lt;p&gt;Idéale pour débloquer immédiatement une situation d&#039;urgence :&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Diagnostic rigoureux de votre code et reproduction de l&#039;anomalie.&lt;/li&gt;&lt;li&gt;Résolution complète d&#039;un bug bloquant (PHP, Eloquent, API ou React).&lt;/li&gt;&lt;li&gt;Test de non-régression et rapport explicatif clair.&lt;/li&gt;&lt;li&gt;Livraison rapide sous 48h.&lt;/li&gt;&lt;/ul&gt;&lt;hr&gt;&lt;h3&gt;⚡ Passez au niveau supérieur avec les Options Complètes&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Option Standard (+180 €) :&lt;/strong&gt; Développement d&#039;une API REST sécurisée, module Stripe ou fonctionnalité métier complexe avec tests.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Option Entreprise (+480 €) :&lt;/strong&gt; Application web complète sur-mesure clé en main (Laravel 11, React, dashboard, rôles, Docker).&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Option Performance (+90 €) :&lt;/strong&gt; Optimisation BDD, élimination des lenteurs et intégration du cache Redis.&lt;/li&gt;&lt;/ul&gt;&lt;hr&gt;&lt;h3&gt;🛡️ Mes Engagements Qualité&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Code 100% propre et documenté :&lt;/strong&gt; Facile à maintenir et à faire évoluer par n&#039;importe quel développeur.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Support inclus :&lt;/strong&gt; Assistance technique post-livraison pour vous accompagner dans la prise en main.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Satisfaction garantie :&lt;/strong&gt; Ajustements inclus jusqu&#039;à validation complète de votre cahier des charges.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;em&gt;Un projet à développer ou une question technique ? Contactez-moi directement via ComeUp pour échanger sur vos spécifications !&lt;/em&gt;&lt;/p&gt;</div>
+    <div id="raw-html-description" class="copy-block">&lt;h2&gt;⚡ Donnez à votre application web la robustesse et la rapidité d&#039;une solution professionnelle&lt;/h2&gt;&lt;p&gt;Vous rencontrez un bug bloquant sur votre application Laravel ? Vous avez besoin de développer une &lt;strong&gt;API REST sécurisée&lt;/strong&gt; ou une &lt;strong&gt;application web sur-mesure&lt;/strong&gt; combinant la puissance de Laravel et la réactivité de React ?&lt;/p&gt;&lt;p&gt;Ingénieur Fullstack fort de &lt;strong&gt;plus de 6 années d&#039;expérience&lt;/strong&gt; dans la conception de plateformes web en production, je vous accompagne pour délivrer un code propre, testé et scalable.&lt;/p&gt;&lt;hr&gt;&lt;h3&gt;🎯 Pourquoi confier votre développement à un ingénieur expérimenté ?&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Architecture Professionnelle :&lt;/strong&gt; Respect strict des standards PSR-12, des principes SOLID et de la séparation des responsabilités.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Sécurité Maximale :&lt;/strong&gt; Protection native contre les failles OWASP (injections SQL, CSRF, XSS, contrôle strict des autorisations).&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Performance Optimisée :&lt;/strong&gt; Élimination des requêtes N+1, indexation BDD intelligente et mise en cache performante.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Technologies Modernes :&lt;/strong&gt; PHP 8.2+, Laravel 10/11, React, Tailwind CSS, MySQL, PostgreSQL, Docker.&lt;/li&gt;&lt;/ul&gt;&lt;hr&gt;&lt;h3&gt;📦 Détail de l&#039;Offre de Base (35 €)&lt;/h3&gt;&lt;p&gt;Idéale pour débloquer immédiatement une situation d&#039;urgence :&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Diagnostic rigoureux de votre code et reproduction de l&#039;anomalie.&lt;/li&gt;&lt;li&gt;Résolution complète d&#039;un bug bloquant (PHP, Eloquent, API ou React).&lt;/li&gt;&lt;li&gt;Test de non-régression et rapport explicatif clair.&lt;/li&gt;&lt;li&gt;Livraison rapide sous 48h.&lt;/li&gt;&lt;/ul&gt;&lt;hr&gt;&lt;h3&gt;⚡ Passez au niveau supérieur avec les Options Complètes&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Option Standard (+180 €) :&lt;/strong&gt; Développement d&#039;une API REST sécurisée, module Stripe ou fonctionnalité métier complexe avec tests.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Option Entreprise (+480 €) :&lt;/strong&gt; Application web complète sur-mesure clé en main (Laravel 11, React, dashboard, rôles, Docker).&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Option Performance (+90 €) :&lt;/strong&gt; Optimisation BDD, élimination des lenteurs et intégration du cache Redis.&lt;/li&gt;&lt;/ul&gt;&lt;hr&gt;&lt;h3&gt;🛡️ Mes Engagements Qualité&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Code 100% propre et documenté :&lt;/strong&gt; Facile à maintenir et à faire évoluer par n&#039;importe quel développeur.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Support inclus :&lt;/strong&gt; Assistance technique post-livraison pour vous accompagner dans la prise en main.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Satisfaction garantie :&lt;/strong&gt; Ajustements inclus jusqu&#039;à validation complète de votre cahier des charges.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;em&gt;Un projet à développer ou une question technique ? Contactez-moi directement via ComeUp pour échanger sur vos spécifications !&lt;/em&gt;&lt;/p&gt;</div>
   </div>
 
   <!-- APERÇU DU RENDU -->

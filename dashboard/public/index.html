@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freelance Gigs Studio — ComeUp & Fiverr (Angelo Lock To Hang)</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f9ff',
+              100: '#e0f2fe',
+              500: '#0ea5e9',
+              600: '#0284c7',
+              700: '#0369a1',
+              900: '#0c4a6e',
+            },
+            darkbg: '#0a0e17',
+            darkcard: '#111827',
+            darkpanel: '#1f2937',
+            navy: '#0f172a',
+            accent: '#38bdf8',
+            emerald: '#10b981',
+            amber: '#f59e0b',
+            purple: '#8b5cf6'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-darkbg text-slate-100 font-sans min-h-screen flex flex-col antialiased selection:bg-brand-500 selection:text-white">
+
+  <!-- TOP HEADER -->
+  <header class="border-b border-slate-800 bg-navy/80 backdrop-blur sticky top-0 z-40">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <!-- Brand & Profile -->
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-600 via-indigo-600 to-purple-600 flex items-center justify-center shadow-lg shadow-brand-500/20 text-xl font-bold">
+          🚀
+        </div>
+        <div>
+          <div class="flex items-center space-x-2">
+            <h1 class="text-base font-bold text-white tracking-tight">Freelance Gigs Studio</h1>
+            <span class="text-xs px-2 py-0.5 rounded-full bg-brand-500/10 text-brand-400 font-medium border border-brand-500/20">v1.0.0</span>
+          </div>
+          <p class="text-xs text-slate-400 flex items-center space-x-1">
+            <span>ComeUp & Fiverr</span>
+            <span class="text-slate-600">•</span>
+            <span class="text-slate-300 font-medium">Angelo Lock To Hang</span>
+            <span class="text-slate-600">•</span>
+            <span class="text-emerald-400">Senior Pro (6+ ans)</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- Quick Status Badges -->
+      <div class="hidden md:flex items-center space-x-3 text-xs">
+        <!-- Chrome CDP status -->
+        <div id="badge-cdp" class="flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700 text-slate-300">
+          <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+          <span>CDP Déconnecté (Port 9222)</span>
+        </div>
+
+        <!-- Counts pills -->
+        <div class="flex items-center space-x-2 px-3 py-1.5 rounded-lg bg-slate-800/80 border border-slate-700 text-slate-300">
+          <span>📁 <strong id="badge-gigs-count" class="text-white">2</strong> fiches</span>
+          <span class="text-slate-600">•</span>
+          <span>🖼️ <strong id="badge-thumbnails-count" class="text-white">24</strong> images</span>
+          <span class="text-slate-600">•</span>
+          <span>📡 <strong id="badge-jobs-count" class="text-white">14</strong> leads</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- NAVIGATION TABS -->
+  <nav class="border-b border-slate-800 bg-darkcard/50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex space-x-2 overflow-x-auto py-2">
+      <button onclick="switchTab('studio')" id="tab-btn-studio" class="nav-tab active flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all">
+        <span>🎯</span>
+        <span>Gigs Studio</span>
+      </button>
+      <button onclick="switchTab('radar')" id="tab-btn-radar" class="nav-tab flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-400 hover:text-white">
+        <span>📡</span>
+        <span>Radar Marché & Leads</span>
+      </button>
+      <button onclick="switchTab('strategy')" id="tab-btn-strategy" class="nav-tab flex items-center space-x-2 px-4 py-2 rounded-lg text-sm font-semibold transition-all text-slate-400 hover:text-white">
+        <span>🧠</span>
+        <span>Stratégie & Psychologie d'Offre</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT CONTAINER -->
+  <main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-6">
+
+    <!-- ======================================================== -->
+    <!-- TAB 1 : GIGS STUDIO -->
+    <!-- ======================================================== -->
+    <section id="view-studio" class="space-y-6">
+      <!-- Selector & Actions Header -->
+      <div class="bg-darkcard border border-slate-800 rounded-2xl p-4 sm:p-6 shadow-xl flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
+        <!-- Gig Selector Pills -->
+        <div class="flex flex-wrap items-center gap-2">
+          <span class="text-xs font-semibold uppercase tracking-wider text-slate-400 mr-2">Sélectionner la fiche :</span>
+          <div id="gig-selector-container" class="flex flex-wrap gap-2">
+            <!-- Dynamically populated or fallback -->
+            <button onclick="selectGig('ai-rag-agent')" id="btn-gig-ai-rag-agent" class="gig-pill active px-4 py-2 rounded-xl text-xs font-bold transition-all border flex items-center space-x-2 bg-brand-500/20 border-brand-500 text-brand-300">
+              <span>🤖</span>
+              <span>Agent IA & RAG Sécurisé</span>
+            </button>
+            <button onclick="selectGig('laravel-fullstack')" id="btn-gig-laravel-fullstack" class="gig-pill px-4 py-2 rounded-xl text-xs font-bold transition-all border flex items-center space-x-2 bg-slate-800/80 border-slate-700 text-slate-300 hover:border-slate-600">
+              <span>⚡</span>
+              <span>Laravel & React Fullstack</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Action Toolbar -->
+        <div class="flex flex-wrap items-center gap-2">
+          <!-- Button: Inject draft -->
+          <button onclick="openInjectModal()" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-semibold text-xs flex items-center space-x-2 shadow-lg shadow-brand-500/20 transition-all">
+            <span>⚡</span>
+            <span>Injecter Brouillon dans Chrome</span>
+          </button>
+          
+          <!-- Button: Audit / Validate -->
+          <button onclick="validateCurrentGig()" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-xs flex items-center space-x-2 transition-all">
+            <span>🛡️</span>
+            <span>Auditer la Conformité</span>
+          </button>
+
+          <!-- Button: Export files -->
+          <button onclick="exportCurrentGig()" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-xs flex items-center space-x-2 transition-all">
+            <span>📄</span>
+            <span>Exporter Fiches</span>
+          </button>
+
+          <!-- Button: Regenerate thumbnails -->
+          <button onclick="regenerateThumbnails()" class="px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-semibold text-xs flex items-center space-x-2 transition-all">
+            <span>🎨</span>
+            <span>Régénérer Miniatures</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Active Gig Summary Bar -->
+      <div id="gig-summary-bar" class="bg-gradient-to-r from-slate-900 via-navy to-slate-900 border border-slate-800 rounded-2xl p-5 shadow-lg flex flex-col md:flex-row md:items-center justify-between gap-4">
+        <div>
+          <div class="flex items-center space-x-2 mb-1">
+            <span id="gig-cat-badge" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-brand-500/10 text-brand-400 border border-brand-500/20">IA & AUTOMATISATION</span>
+            <span id="gig-valid-badge" class="px-2.5 py-0.5 rounded-full text-[10px] font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">✅ 100% VALIDE</span>
+          </div>
+          <h2 id="gig-headline-title" class="text-xl font-bold text-white tracking-tight">Système RAG Sécurisé, Agents IA & Serveurs MCP</h2>
+          <p id="gig-headline-subtitle" class="text-xs text-slate-400 mt-0.5">Livraison clé en main • Zéro Hallucination • Déploiement Docker & Code 100% Testé</p>
+        </div>
+        <div class="flex items-center space-x-4 text-xs text-slate-300">
+          <div class="text-center px-3 py-2 bg-slate-800/60 rounded-xl border border-slate-700/60">
+            <div class="text-[10px] text-slate-400 uppercase">ComeUp Base</div>
+            <div id="summary-comeup-price" class="text-sm font-bold text-emerald-400">25 €</div>
+          </div>
+          <div class="text-center px-3 py-2 bg-slate-800/60 rounded-xl border border-slate-700/60">
+            <div class="text-[10px] text-slate-400 uppercase">Fiverr Standard</div>
+            <div id="summary-fiverr-price" class="text-sm font-bold text-brand-400">$180</div>
+          </div>
+          <div class="text-center px-3 py-2 bg-slate-800/60 rounded-xl border border-slate-700/60">
+            <div class="text-[10px] text-slate-400 uppercase">Délai Cible</div>
+            <div id="summary-delivery-time" class="text-sm font-bold text-purple-400">2-4 jours</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Side-by-Side Bilingual Comparison (ComeUp FR vs Fiverr EN) -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <!-- LEFT: ComeUp (Français) -->
+        <div class="bg-darkcard border border-slate-800 rounded-2xl overflow-hidden shadow-xl flex flex-col">
+          <!-- Platform Header -->
+          <div class="bg-gradient-to-r from-blue-900/40 via-slate-900 to-slate-900 border-b border-slate-800 p-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <span class="px-2.5 py-1 rounded-lg bg-blue-500/20 text-blue-400 font-bold text-xs border border-blue-500/30">ComeUp (FR)</span>
+              <span class="text-xs text-slate-400">Clientèle Francophone</span>
+            </div>
+            <span class="text-xs text-slate-400 font-mono">Format HTML Riche</span>
+          </div>
+
+          <!-- Content Body -->
+          <div class="p-5 space-y-5 flex-1 text-sm">
+            <!-- Title -->
+            <div>
+              <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-1">Titre du service ComeUp :</label>
+              <div id="comeup-title" class="p-3 bg-slate-900/80 rounded-xl border border-slate-800 font-medium text-slate-100">
+                Je vais créer votre Agent IA sur-mesure et système RAG sécurisé
+              </div>
+            </div>
+
+            <!-- Base Offer & Options Breakdown -->
+            <div>
+              <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">Structure Tarifaire & Paliers :</label>
+              <div class="space-y-2">
+                <!-- Base Offer -->
+                <div id="comeup-base-card" class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 flex items-center justify-between">
+                  <div>
+                    <span class="text-xs font-bold text-white block">Offre de Base (Amorçage)</span>
+                    <span id="comeup-base-desc" class="text-xs text-slate-400">Audit de faisabilité & Cahier des charges</span>
+                  </div>
+                  <span id="comeup-base-price" class="text-base font-bold text-emerald-400 font-mono">25 €</span>
+                </div>
+                <!-- Options Container -->
+                <div id="comeup-options-container" class="space-y-2">
+                  <!-- Dynamically populated -->
+                </div>
+              </div>
+            </div>
+
+            <!-- Description Preview -->
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Aperçu Description HTML :</label>
+                <span id="comeup-desc-len" class="text-[11px] text-slate-500">2697 caractères</span>
+              </div>
+              <div id="comeup-description-preview" class="p-4 bg-slate-900/90 rounded-xl border border-slate-800 text-xs text-slate-300 max-h-64 overflow-y-auto font-sans leading-relaxed space-y-2">
+                <!-- Description content -->
+              </div>
+            </div>
+
+            <!-- FAQ Accordion -->
+            <div>
+              <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">Foire Aux Questions (FAQ) :</label>
+              <div id="comeup-faq-container" class="space-y-2 max-h-48 overflow-y-auto">
+                <!-- FAQ items -->
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- RIGHT: Fiverr (English) -->
+        <div class="bg-darkcard border border-slate-800 rounded-2xl overflow-hidden shadow-xl flex flex-col">
+          <!-- Platform Header -->
+          <div class="bg-gradient-to-r from-emerald-900/30 via-slate-900 to-slate-900 border-b border-slate-800 p-4 flex items-center justify-between">
+            <div class="flex items-center space-x-2">
+              <span class="px-2.5 py-1 rounded-lg bg-emerald-500/20 text-emerald-400 font-bold text-xs border border-emerald-500/30">Fiverr (EN)</span>
+              <span class="text-xs text-slate-400">International & SEO Calibrated</span>
+            </div>
+            <span class="text-xs text-slate-400 font-mono">3 Packages Grid</span>
+          </div>
+
+          <!-- Content Body -->
+          <div class="p-5 space-y-5 flex-1 text-sm">
+            <!-- Fiverr Title -->
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Gig Title (Fiverr SEO) :</label>
+                <span id="fiverr-title-len" class="text-[11px] text-slate-500">67/80 chars</span>
+              </div>
+              <div id="fiverr-title" class="p-3 bg-slate-900/80 rounded-xl border border-slate-800 font-medium text-slate-100">
+                I will build custom AI agents and secure RAG pipelines with MCP
+              </div>
+            </div>
+
+            <!-- 5 Search Tags -->
+            <div>
+              <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-1">5 Search Tags (Indexation) :</label>
+              <div id="fiverr-tags-container" class="flex flex-wrap gap-1.5">
+                <!-- Tag pills -->
+              </div>
+            </div>
+
+            <!-- 3 Packages Grid -->
+            <div>
+              <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">Packages Scope & Pricing :</label>
+              <div class="grid grid-cols-1 md:grid-cols-3 gap-2" id="fiverr-packages-container">
+                <!-- Basic / Standard / Premium populated via JS -->
+              </div>
+            </div>
+
+            <!-- Markdown Description Preview -->
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Markdown Description :</label>
+                <span id="fiverr-desc-len" class="text-[11px] text-slate-500">1065/1200 chars</span>
+              </div>
+              <div id="fiverr-description-preview" class="p-4 bg-slate-900/90 rounded-xl border border-slate-800 text-xs text-slate-300 max-h-64 overflow-y-auto font-mono leading-relaxed whitespace-pre-wrap">
+                <!-- Markdown content -->
+              </div>
+            </div>
+
+            <!-- Requirements -->
+            <div>
+              <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-2">Buyer Requirements :</label>
+              <div id="fiverr-requirements-container" class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 text-xs text-slate-400 space-y-1">
+                <!-- Requirements items -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VISUAL GALLERY OF THUMBNAILS (1280x769 px) -->
+      <div class="bg-darkcard border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+        <div class="flex items-center justify-between">
+          <div>
+            <h3 class="text-base font-bold text-white tracking-tight flex items-center space-x-2">
+              <span>🖼️</span>
+              <span>Galerie Visuelle des Miniatures (Format 1280x769 px Retina 2x)</span>
+            </h3>
+            <p class="text-xs text-slate-400">Variantes A/B haute conversion : Dark Tech (Obsidienne & Néon) vs Navy Corporate (Bleu Nuit Pro)</p>
+          </div>
+          <button onclick="regenerateThumbnails()" class="text-xs px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-brand-400 font-semibold border border-slate-700 transition">
+            🔄 Régénérer ce gig
+          </button>
+        </div>
+
+        <!-- Thumbnails Grid -->
+        <div id="thumbnails-gallery-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+
+      <!-- LIVE LOGS & CONSOLE DRAWER -->
+      <div class="bg-slate-950 border border-slate-800 rounded-2xl p-4 shadow-xl font-mono text-xs">
+        <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800/80">
+          <div class="flex items-center space-x-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="font-bold text-slate-300">Console de Suivi & Télémétrie Injection CDP</span>
+          </div>
+          <button onclick="clearConsoleLog()" class="text-[10px] text-slate-500 hover:text-slate-300">Effacer les logs</button>
+        </div>
+        <div id="console-logs-area" class="h-28 overflow-y-auto space-y-1 text-slate-400">
+          <div class="text-slate-500">[System] Prêt. Sélectionnez une action ci-dessus pour lancer un flux.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- TAB 2 : RADAR MARCHÉ & LEADS -->
+    <!-- ======================================================== -->
+    <section id="view-radar" class="space-y-6 hidden">
+      <!-- Radar Filter Header -->
+      <div class="bg-darkcard border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+        <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h2 class="text-lg font-bold text-white tracking-tight flex items-center space-x-2">
+              <span>📡</span>
+              <span>Radar d'Opportunités Tech & IA Appliquée</span>
+            </h2>
+            <p class="text-xs text-slate-400 mt-0.5">Veille active via le serveur MCP distant (<code class="text-brand-400">aidevboard.com</code>) et le flux passif Upwork</p>
+          </div>
+          <button onclick="refreshRadarRemote()" id="btn-refresh-radar" class="px-4 py-2.5 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 hover:to-indigo-500 text-white font-semibold text-xs flex items-center space-x-2 shadow-lg shadow-brand-500/20 transition-all self-start md:self-auto">
+            <span>🔄</span>
+            <span>Actualiser le radar distant</span>
+          </button>
+        </div>
+
+        <!-- Filters Form -->
+        <div class="grid grid-cols-1 md:grid-cols-12 gap-4 pt-2 border-t border-slate-800/80">
+          <!-- Keyword input -->
+          <div class="md:col-span-5">
+            <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-1">Mots-clés / Requête :</label>
+            <input type="text" id="radar-filter-query" placeholder="ex: rag, agent, mcp, laravel, react..." oninput="debounceFilterRadar()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-brand-500">
+          </div>
+
+          <!-- Source select -->
+          <div class="md:col-span-3">
+            <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider block mb-1">Source :</label>
+            <select id="radar-filter-source" onchange="filterRadarJobs()" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3.5 py-2 text-xs text-white focus:outline-none focus:border-brand-500">
+              <option value="all">Toutes les sources (MCP + Upwork)</option>
+              <option value="mcp">MCP Remote (aidevboard.com)</option>
+              <option value="upwork">Upwork Sweeper</option>
+            </select>
+          </div>
+
+          <!-- Min Score slider -->
+          <div class="md:col-span-4">
+            <div class="flex items-center justify-between mb-1">
+              <label class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Score Minimum :</label>
+              <span id="radar-min-score-label" class="text-xs font-bold text-brand-400 font-mono">0 %</span>
+            </div>
+            <input type="range" id="radar-filter-minscore" min="0" max="100" value="0" step="5" oninput="updateRadarScoreLabel(this.value); debounceFilterRadar();" class="w-full accent-brand-500">
+          </div>
+        </div>
+      </div>
+
+      <!-- Radar Stats Banner -->
+      <div class="grid grid-cols-1 sm:grid-cols-4 gap-4">
+        <div class="bg-darkcard border border-slate-800 rounded-xl p-4 text-center">
+          <div class="text-xs text-slate-400">Total Leads Captés</div>
+          <div id="radar-stat-total" class="text-xl font-bold text-white font-mono mt-1">14</div>
+        </div>
+        <div class="bg-darkcard border border-slate-800 rounded-xl p-4 text-center">
+          <div class="text-xs text-emerald-400 font-semibold">Match Élevé (≥ 80%)</div>
+          <div id="radar-stat-high" class="text-xl font-bold text-emerald-400 font-mono mt-1">6</div>
+        </div>
+        <div class="bg-darkcard border border-slate-800 rounded-xl p-4 text-center">
+          <div class="text-xs text-amber-400 font-semibold">Match Moyen (60-79%)</div>
+          <div id="radar-stat-medium" class="text-xl font-bold text-amber-400 font-mono mt-1">5</div>
+        </div>
+        <div class="bg-darkcard border border-slate-800 rounded-xl p-4 text-center">
+          <div class="text-xs text-purple-400 font-semibold">Score Moyen</div>
+          <div id="radar-stat-avg" class="text-xl font-bold text-purple-400 font-mono mt-1">72%</div>
+        </div>
+      </div>
+
+      <!-- Opportunities Cards Grid -->
+      <div id="radar-cards-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <!-- Cards populated by JS -->
+      </div>
+    </section>
+
+    <!-- ======================================================== -->
+    <!-- TAB 3 : STRATÉGIE & PSYCHOLOGIE D'OFFRE -->
+    <!-- ======================================================== -->
+    <section id="view-strategy" class="space-y-6 hidden">
+      <!-- Strategy Top Intro -->
+      <div class="bg-darkcard border border-slate-800 rounded-2xl p-6 shadow-xl">
+        <h2 class="text-xl font-bold text-white tracking-tight flex items-center space-x-2">
+          <span>🧠</span>
+          <span>Ingénierie de l'Offre & Psychologie Tarifaire</span>
+        </h2>
+        <p class="text-xs text-slate-400 mt-1 max-w-3xl">
+          Alignement stratégique sur les compétences d'Angelo Lock To Hang (6+ ans Fullstack & Spécialiste IA Appliquée).
+          Application directe de la <strong>Value Equation d'Alex Hormozi</strong> et des préceptes de tarification asymétrique.
+        </p>
+      </div>
+
+      <!-- Hormozi Value Equation Grid -->
+      <div class="bg-darkcard border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <h3 class="text-base font-bold text-white tracking-tight">Formule de la Valeur (Alex Hormozi — $100M Offers)</h3>
+          <span class="px-3 py-1 rounded-full bg-brand-500/10 text-brand-400 font-mono text-xs border border-brand-500/20">
+            Valeur = (Dream Outcome × Likelihood) / (Time Delay × Effort)
+          </span>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 pt-2">
+          <!-- Numérateur -->
+          <div class="space-y-4 bg-emerald-950/20 border border-emerald-500/30 rounded-xl p-5">
+            <div class="flex items-center space-x-2 text-emerald-400 font-bold text-sm">
+              <span>📈</span>
+              <span>NUMÉRATEUR (À MAXIMISER ABSOLUMENT)</span>
+            </div>
+            
+            <div class="space-y-3 text-xs">
+              <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800">
+                <span class="font-bold text-white block mb-1">1. Résultat Rêvé (Dream Outcome)</span>
+                <p class="text-slate-300">
+                  L'acheteur ne cherche pas du code brut : il veut un <strong>agent IA opérationnel</strong>, un pipeline RAG <strong>zéro hallucination</strong> connecté à sa base, ou une <strong>application Laravel/React fluide et sécurisée</strong> prête pour ses utilisateurs.
+                </p>
+              </div>
+
+              <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800">
+                <span class="font-bold text-white block mb-1">2. Certitude Perçue (Perceived Likelihood of Achievement)</span>
+                <p class="text-slate-300">
+                  Prouvée par les <strong>6+ années d'expérience senior</strong>, la <strong>vidéo explicative Loom offerte</strong>, la <strong>garantie 100% de tests unitaires</strong> et le refus catégorique de dette technique.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dénominateur -->
+          <div class="space-y-4 bg-purple-950/20 border border-purple-500/30 rounded-xl p-5">
+            <div class="flex items-center space-x-2 text-purple-400 font-bold text-sm">
+              <span>📉</span>
+              <span>DÉNOMINATEUR (À COMPRESSER VERS ZÉRO)</span>
+            </div>
+
+            <div class="space-y-3 text-xs">
+              <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800">
+                <span class="font-bold text-white block mb-1">3. Délai d'Obtention (Time Delay)</span>
+                <p class="text-slate-300">
+                  Compressé à <strong>2 à 4 jours</strong> pour le Standard, 24-48h pour le Starter. Déploiement accéléré grâce aux modules pré-architecturés et conteneurs Docker reproductibles.
+                </p>
+              </div>
+
+              <div class="bg-slate-900/80 p-3 rounded-lg border border-slate-800">
+                <span class="font-bold text-white block mb-1">4. Effort & Sacrifice du Client</span>
+                <p class="text-slate-300">
+                  Réduit à zéro : <strong>livraison clé en main</strong>, scripts d'amorçage <code class="text-brand-300">docker-compose</code>, documentation pas-à-pas et support d'intégration inclus.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Asymmetric Pricing Structure Cards -->
+      <div class="bg-darkcard border border-slate-800 rounded-2xl p-6 shadow-xl space-y-4">
+        <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <h3 class="text-base font-bold text-white tracking-tight">Structure Tarifaire Asymétrique & Ancrage Décoy</h3>
+            <p class="text-xs text-slate-400">
+              Stratégie à 3 étages calibrée pour éliminer la course vers le bas (bannissement des 5€ dégradants) et concentrer le volume sur le Sweet-spot Standard.
+            </p>
+          </div>
+          <!-- Selector for Gigs Pricing Matrix -->
+          <div class="flex items-center space-x-2 shrink-0">
+            <span class="text-[11px] text-slate-400 font-semibold uppercase">Fiche :</span>
+            <div id="strategy-pricing-pills" class="flex space-x-1.5">
+              <button onclick="switchStrategyPricingGig('ai-rag-agent')" id="btn-strat-ai-rag-agent" class="px-2.5 py-1 rounded-lg text-xs font-bold border bg-brand-500/20 border-brand-500 text-brand-300 transition">
+                🤖 Agent IA & RAG
+              </button>
+              <button onclick="switchStrategyPricingGig('laravel-fullstack')" id="btn-strat-laravel-fullstack" class="px-2.5 py-1 rounded-lg text-xs font-bold border bg-slate-800 border-slate-700 text-slate-400 hover:text-white transition">
+                ⚡ Laravel & React
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div id="strategy-pricing-cards-container" class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+          <!-- Tier 1 : Starter -->
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 text-xs space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-white uppercase text-[11px] tracking-wider">Palier 1 : Starter</span>
+              <span class="px-2 py-0.5 rounded bg-slate-800 text-slate-300 font-mono font-bold">25 € / $45</span>
+            </div>
+            <div class="text-brand-400 font-semibold">Levier de Désamorçage</div>
+            <p class="text-slate-400">
+              Audit de faisabilité, diagnostic rapide ou micro-script. Élimine la friction psychologique du premier paiement tout en préservant l'autorité senior.
+            </p>
+          </div>
+
+          <!-- Tier 2 : Standard (Sweet Spot) -->
+          <div class="bg-gradient-to-b from-brand-950/40 to-slate-900 border-2 border-brand-500/60 rounded-xl p-4 text-xs space-y-2 relative shadow-lg shadow-brand-500/10">
+            <div class="absolute -top-2.5 right-4 px-2 py-0.5 bg-brand-500 text-white font-bold text-[10px] rounded-full uppercase tracking-wider">
+              ⭐ 70% des Ventes
+            </div>
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-white uppercase text-[11px] tracking-wider">Palier 2 : Standard (Sweet Spot)</span>
+              <span class="px-2 py-0.5 rounded bg-brand-500/20 text-brand-300 font-mono font-bold">175 € / $180</span>
+            </div>
+            <div class="text-emerald-400 font-semibold">Solution Complète & Marge Idéale</div>
+            <p class="text-slate-300">
+              Pipeline RAG complet vectorisé ou API métier avec documentation. Le meilleur rapport valeur/prix qui convertit 7 clients sur 10.
+            </p>
+          </div>
+
+          <!-- Tier 3 : Enterprise / High Anchor -->
+          <div class="bg-slate-900 border border-slate-800 rounded-xl p-4 text-xs space-y-2">
+            <div class="flex items-center justify-between">
+              <span class="font-bold text-white uppercase text-[11px] tracking-wider">Palier 3 : Premium / Décoi</span>
+              <span class="px-2 py-0.5 rounded bg-purple-500/20 text-purple-300 font-mono font-bold">415 € / $450</span>
+            </div>
+            <div class="text-purple-400 font-semibold">Ancre Haute Psychologique</div>
+            <p class="text-slate-400">
+              Écosystème agentique complet ou application fullstack sur-mesure. Rend le palier Standard très abordable tout en captant les budgets d'entreprise.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Skills Taxonomy & Radar Weights Block -->
+      <div class="bg-darkcard border border-slate-800 rounded-2xl p-6 shadow-xl space-y-3">
+        <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+          <h3 class="text-base font-bold text-white tracking-tight flex items-center space-x-2">
+            <span>🎯</span>
+            <span>Taxonomie des Compétences & Pondérations Radar (Live API)</span>
+          </h3>
+          <span class="text-xs text-brand-400 font-mono">/api/strategy</span>
+        </div>
+        <p class="text-xs text-slate-400">
+          Pondérations logarithmiques appliquées en temps réel par le radar de veille pour matcher les leads avec l'expertise d'Angelo Lock To Hang.
+        </p>
+        <div id="strategy-skills-container" class="flex flex-wrap gap-2 pt-2">
+          <!-- Populated dynamically via /api/strategy -->
+        </div>
+      </div>
+
+      <!-- Reassurance & Bonuses Checklist -->
+      <div class="bg-darkcard border border-slate-800 rounded-2xl p-6 shadow-xl space-y-3">
+        <h3 class="text-base font-bold text-white tracking-tight">Checklist de Réassurance & Bonus Inclus</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs">
+          <div class="flex items-start space-x-2.5 p-3 bg-slate-900/60 rounded-xl border border-slate-800">
+            <span class="text-emerald-400 text-sm">✅</span>
+            <div>
+              <strong class="text-white">Démonstration Vidéo Loom Offerte</strong>
+              <p class="text-slate-400">Présentation du fonctionnement et walkthrough complet du code pour l'équipe du client.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-2.5 p-3 bg-slate-900/60 rounded-xl border border-slate-800">
+            <span class="text-emerald-400 text-sm">✅</span>
+            <div>
+              <strong class="text-white">100% Code Testé & Garanti</strong>
+              <p class="text-slate-400">Tests unitaires et d'intégration automatisés garantissant l'absence de régression.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-2.5 p-3 bg-slate-900/60 rounded-xl border border-slate-800">
+            <span class="text-emerald-400 text-sm">✅</span>
+            <div>
+              <strong class="text-white">Conteneurisation Docker Turnkey</strong>
+              <p class="text-slate-400">Fichiers Dockerfile et docker-compose prêts à tourner en 1 ligne de commande.</p>
+            </div>
+          </div>
+          <div class="flex items-start space-x-2.5 p-3 bg-slate-900/60 rounded-xl border border-slate-800">
+            <span class="text-emerald-400 text-sm">✅</span>
+            <div>
+              <strong class="text-white">Support d'Intégration Post-Livraison</strong>
+              <p class="text-slate-400">Assistance directe pour le déploiement sur les serveurs ou l'environnement client.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ======================================================== -->
+  <!-- MODALS -->
+  <!-- ======================================================== -->
+
+  <!-- INJECTION MODAL -->
+  <div id="modal-inject" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-darkcard border border-slate-800 rounded-2xl max-w-lg w-full p-6 space-y-5 shadow-2xl relative">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+        <div class="flex items-center space-x-2">
+          <span class="text-xl">⚡</span>
+          <h3 class="text-base font-bold text-white">Injection Sécurisée (CDP Port 9222)</h3>
+        </div>
+        <button onclick="closeInjectModal()" class="text-slate-400 hover:text-white text-lg font-bold">&times;</button>
+      </div>
+
+      <!-- Guardrail notice -->
+      <div class="p-3.5 bg-brand-500/10 border border-brand-500/30 rounded-xl text-xs text-brand-300 flex items-start space-x-2.5">
+        <span class="text-base">🛡️</span>
+        <div>
+          <strong class="block text-white">GARANTIE ABSOLUE DE SÉCURITÉ :</strong>
+          Le script s'arrête strictement au stade <strong>Brouillon (Draft)</strong>. Vous visualisez et validez vous-même le formulaire dans Chrome avant publication définitive.
+        </div>
+      </div>
+
+      <div class="space-y-4 text-xs">
+        <div>
+          <label class="font-semibold text-slate-300 block mb-1">Plateforme cible :</label>
+          <select id="inject-platform-select" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-500">
+            <option value="comeup">ComeUp (https://comeup.com/dashboard/services/nouveau)</option>
+            <option value="fiverr">Fiverr (https://www.fiverr.com/manage_gigs/new)</option>
+            <option value="all">Les deux plateformes à la suite</option>
+          </select>
+        </div>
+
+        <div>
+          <label class="font-semibold text-slate-300 block mb-1">Variante de miniature :</label>
+          <select id="inject-variant-select" class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2 text-white focus:outline-none focus:border-brand-500">
+            <option value="dark-tech">Dark Tech (Obsidienne & Néon)</option>
+            <option value="navy-corporate">Navy Corporate (Bleu Nuit Pro)</option>
+          </select>
+        </div>
+
+        <div class="p-3 bg-slate-900/60 rounded-xl border border-slate-800 flex items-center space-x-3">
+          <input type="checkbox" id="inject-dryrun-checkbox" checked class="w-4 h-4 rounded text-brand-500 accent-brand-500">
+          <label for="inject-dryrun-checkbox" class="text-slate-300">
+            <strong>Mode Simulation (Dry-Run)</strong> : Valide 100% des sélecteurs et payloads sans ouvrir Chrome.
+          </label>
+        </div>
+      </div>
+
+      <!-- Action buttons -->
+      <div class="flex items-center justify-end space-x-3 pt-3 border-t border-slate-800">
+        <button onclick="closeInjectModal()" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 font-semibold text-xs hover:bg-slate-700">Annuler</button>
+        <button onclick="launchInjection()" id="btn-run-inject" class="px-4 py-2 rounded-xl bg-gradient-to-r from-brand-600 to-indigo-600 hover:from-brand-500 text-white font-semibold text-xs flex items-center space-x-2 shadow-lg shadow-brand-500/20">
+          <span>🚀</span>
+          <span>Exécuter l'injection</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- AUDIT RESULT MODAL -->
+  <div id="modal-audit" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4 hidden">
+    <div class="bg-darkcard border border-slate-800 rounded-2xl max-w-xl w-full p-6 space-y-4 shadow-2xl relative max-h-[90vh] flex flex-col">
+      <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+        <div class="flex items-center space-x-2">
+          <span class="text-xl">🛡️</span>
+          <h3 class="text-base font-bold text-white">Diagnostic d'Audit Canonique</h3>
+        </div>
+        <button onclick="closeAuditModal()" class="text-slate-400 hover:text-white text-lg font-bold">&times;</button>
+      </div>
+
+      <div id="audit-results-body" class="space-y-3 overflow-y-auto flex-1 text-xs text-slate-300">
+        <!-- Injected via JS -->
+      </div>
+
+      <div class="pt-3 border-t border-slate-800 flex justify-end">
+        <button onclick="closeAuditModal()" class="px-4 py-2 rounded-xl bg-slate-800 text-slate-300 font-semibold text-xs hover:bg-slate-700">Fermer</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX IMAGE MODAL -->
+  <div id="modal-lightbox" class="fixed inset-0 bg-black/90 backdrop-blur-md z-50 flex items-center justify-center p-4 hidden" onclick="closeLightbox()">
+    <div class="relative max-w-5xl w-full" onclick="event.stopPropagation()">
+      <button onclick="closeLightbox()" class="absolute -top-10 right-0 text-white text-2xl font-bold hover:text-brand-400">&times;</button>
+      <img id="lightbox-img" src="" alt="Thumbnail Full" class="w-full rounded-2xl shadow-2xl border border-slate-700 object-contain max-h-[85vh]">
+      <div class="flex items-center justify-between mt-2 px-2 text-xs text-slate-400">
+        <span id="lightbox-caption">ai-rag-agent-comeup-dark-tech.png</span>
+        <a id="lightbox-download" href="#" target="_blank" class="text-brand-400 hover:underline">Ouvrir l'image HD ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="border-t border-slate-800 bg-navy/60 text-center py-4 text-xs text-slate-500">
+    Freelance Gigs Studio © 2026 • Angelo Lock To Hang • Développé pour ComeUp & Fiverr • Serveur Express Local
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

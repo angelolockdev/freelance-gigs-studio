@@ -1,20 +1,27 @@
 # 🎯 Fiverr Export : Développement Web Fullstack & Maintenance Laravel / React
 
 ## 1. Gig Overview
-- **Gig Title (61/80 chars) :**
+- **Gig Full Title (61/80 chars) :**
 ```
 I will build secure fullstack web apps with Laravel and React
 ```
+
+- **Title to paste in Fiverr box (without 'I will') :**
+```
+build secure fullstack web apps with Laravel and React
+```
+
 - **Category :** Programming & Tech > Web Applications
-- **Search Tags (5 tags required) :**
+- **Search Tags (5 tags required - letters and numbers only) :**
   1. `laravel` (7 chars)
-  2. `react-js` (8 chars)
-  3. `fullstack-developer` (19 chars)
-  4. `rest-api` (8 chars)
-  5. `php-developer` (13 chars)
+  2. `react js` (8 chars)
+  3. `fullstack developer` (19 chars)
+  4. `rest api` (8 chars)
+  5. `php developer` (13 chars)
+
 - **Tags (Comma-separated for quick paste) :**
 ```
-laravel, react-js, fullstack-developer, rest-api, php-developer
+laravel, react js, fullstack developer, rest api, php developer
 ```
 
 ---

@@ -1,0 +1,958 @@
+{
+  "updated_at": "2026-10-11T06:45:12.717Z",
+  "total_jobs": 35,
+  "sources": {
+    "mcp": 21,
+    "upwork": 14
+  },
+  "seen_ids": [
+    "mcp-5c347b19-9944-4dcd-aadb-7a85910a1536",
+    "mcp-44d0172d-233b-4975-8442-cbc45adbce4c",
+    "mcp-c86f5174-eb44-436e-92ad-1d161af54673",
+    "mcp-a3088207-8964-4af4-ac93-8c9307050c94",
+    "mcp-5b3d7734-bd77-4038-b5a6-899f55f60ca0",
+    "mcp-7ea105b2-5855-4894-bf6c-9c1516072074",
+    "mcp-a81e1a5f-332d-4680-b515-0b98223be092",
+    "mcp-53da8665-dbaa-4963-8789-47e18de045e6",
+    "mcp-93bcf0fc-cb09-4f2e-8817-fb2e26e7e1db",
+    "mcp-0bc957ce-10c0-4732-bb56-0068e24f1297",
+    "mcp-a32afd77-b5b9-4e2f-976c-3cc490810825",
+    "mcp-1c8b3211-439f-428a-b366-64fe375f5319",
+    "mcp-4badc7d9-f720-4e7c-9b79-5dba22c75318",
+    "mcp-6c5a20f4-b409-4b3c-b380-ba5b698131fc",
+    "mcp-d0fbd228-8550-48e6-a90d-524d81626cab",
+    "mcp-455bd8ea-5c72-4d71-ba01-e5fca8dabcc7",
+    "mcp-bbceef8f-3aac-4b8d-b348-0de4d2491610",
+    "mcp-02a77be8-1872-4e8c-ac22-c91d59543ce8",
+    "mcp-3a18be88-5daf-4992-9585-44d29fa2ce00",
+    "mcp-34415284-3918-4b63-a94b-bc2380102f89",
+    "mcp-b5ed61f7-026d-4ff0-a065-a4049b23edda",
+    "upwork-2107878601359953717",
+    "upwork-2107859132154326868",
+    "upwork-2107883466756788021",
+    "upwork-2107736074728494953",
+    "upwork-2107836504265675184",
+    "upwork-2106934708880012541",
+    "upwork-2106889895602235424",
+    "upwork-2106816387965914957",
+    "upwork-2106821384418830368",
+    "upwork-2106425895840118013",
+    "upwork-2106801099959432445",
+    "upwork-2106782456428385491",
+    "upwork-2106692270157148555",
+    "upwork-2106755987796341131"
+  ],
+  "jobs": [
+    {
+      "id": "mcp-5c347b19-9944-4dcd-aadb-7a85910a1536",
+      "title": "Senior Actuarial Analyst",
+      "company": "Cohere Health",
+      "location": "United States",
+      "salary_or_rate": "$130k - $140k/an",
+      "url": "https://aidevboard.com/job/cohere-health/senior-actuarial-analyst-e83897d4",
+      "tags": [
+        "healthcare",
+        "agents",
+        "payments",
+        "cloud"
+      ],
+      "source": "ai-dev-jobs-mcp",
+      "summary": "Opportunity Overview: We are seeking a Senior Actuarial Analyst to join our Actuarial team. In this role, you will own the models and core reporting that quantify customer outcomes, impact, and cost savings for Cohere’s prior authorization programs, and present what is driving those results to internal leadership and external customers. You’ll part...",
+      "timestamp": "2026-09-13T20:48:51Z",
+      "workplace": "remote",
+      "jobType": "full-time",
+      "matchScore": 35,
+      "matchedSkills": [
+        "agents"
+      ],
+      "matchReasons": [
+        "AI Agents / Agentic Workflows",
+        "Télétravail (Remote)"
+      ]
+    },
+    {
+      "id": "mcp-44d0172d-233b-4975-8442-cbc45adbce4c",
+      "title": "Senior Actuarial Support Analyst",
+      "company": "Cohere Health",
+      "location": "United States",
+      "salary_or_rate": "$105k - $115k/an",
+      "url": "https://aidevboard.com/job/cohere-health/senior-actuarial-support-analyst-cf72a5cd",
+      "tags": [
+        "healthcare",
+        "agents",
+        "cloud",
+        "payments"
+      ],
+      "source": "ai-dev-jobs-mcp",
+      "summary": "Opportunity Overview: We are looking for a detail-oriented Senior Actuarial Support Analyst to join our Actuarial team. In this role, you will be responsible for evaluating cost-saving initiatives that enhance the efficiency and effectiveness of the prior authorization process. The ideal candidate will have extensive experience in healthcare analyt...",
+      "timestamp": "2026-09-13T20:48:09Z",
+      "workplace": "remote",
+      "jobType": "full-time",
+      "matchScore": 35,
+      "matchedSkills": [
+        "agents"
+      ],
+      "matchReasons": [
+        "AI Agents / Agentic Workflows",
+        "Télétravail (Remote)"
+      ]
+    },
+    {
+      "id": "mcp-c86f5174-eb44-436e-92ad-1d161af54673",
+      "title": "Member of Technical Staff, Infrastructure Engineer",
+      "company": "Vapi",
+      "location": "San Francisco, CA",
+      "salary_or_rate": "$280k - $314k/an",
+      "url": "https://aidevboard.com/job/vapi/member-of-technical-staff-infrastructure-engineer-d6cd8dac",
+      "tags": [
+        "speech",
+        "cloud",
+        "distributed-systems",
+        "infrastructure"
+      ],
+      "source": "ai-dev-jobs-mcp",
+      "summary": "Vapi (/ˈVɑːpi/): - Voice AI that resolves, not transfers - Powering 1 billion calls for companies like Amazon Ring, Intuit, ServiceTitan, and New York Life - Trusted by 1 million developers building the future of voice agents - Backed by Peak XV, Bessemer, Kleiner Perkins, M12, Y Combinator, and more with $72M raised - Try talking to Vapi now! http...",
+      "timestamp": "2026-09-12T04:31:34.84Z",
+      "workplace": "remote",
+      "jobType": "full-time",
+      "matchScore": 0,
+      "matchedSkills": [],
+      "matchReasons": []
+    },
+    {
+      "id": "mcp-a3088207-8964-4af4-ac93-8c9307050c94",
+      "title": "Distinguished Engineer, Agentic SDLC & Non‑Linear Productivity",
+      "company": "GitLab",
+      "location": "Remote (Canada)",
+      "salary_or_rate": "$250k - $349k/an",
+      "url": "https://aidevboard.com/job/gitlab/distinguished-engineer-agentic-sdlc-nonlinear-productivity-93ebe013",
+      "tags": [
+        "llm",
+        "distributed-systems",
+        "agents",
+        "alignment"
+      ],
+      "source": "ai-dev-jobs-mcp",
+      "summary": "GitLab is the intelligent orchestration platform for DevSecOps. GitLab enables organizations to increase developer productivity, improve operational efficiency, reduce security and compliance risk, and accelerate digital transformation. More than 50 million registered users and more than 50% of the Fortune 100* trust GitLab to ship better, more sec...",
+      "timestamp": "2026-09-11T16:07:40Z",
+      "workplace": "remote",
+      "jobType": "full-time",
+      "matchScore": 50,
+      "matchedSkills": [
+        "agents",
+        "llm"
+      ],
+      "matchReasons": [
+        "AI Agents / Agentic Workflows",
+        "LLM & Prompt Engineering",
+        "Télétravail (Remote)"
+      ]
+    },
+    {
+      "id": "mcp-5b3d7734-bd77-4038-b5a6-899f55f60ca0",
+      "title": "Senior Machine Learning Engineer",
+      "company": "Fullscript",
+      "location": "Ottawa, ON",
+      "salary_or_rate": "$140k - $160k/an",
+      "url": "https://aidevboard.com/job/fullscript/senior-machine-learning-engineer-7b927524",
+      "tags": [
+        "rag",
+        "agents",
+        "healthcare",
+        "llm",
+        "machine-learning"
+      ],
+      "source": "ai-dev-jobs-mcp",
+      "summary": "About Fullscript We’re an industry-leading health technology company on a mission to help people get better. We started in 2011 with one simple idea. Make it easier for practitioners to access the products they trust so they can deliver better care. That simple idea grew into a platform that powers every part of care. Today, more than 125,000 pract...",
+      "timestamp": "2026-09-10T17:30:03.448Z",
+      "workplace": "remote",
+      "jobType": "full-time",
+      "matchScore": 80,
+      "matchedSkills": [
+        "rag",
+        "agents",
+        "llm"
+      ],
+      "matchReasons": [
+        "RAG / Vector DB",
+        "AI Agents / Agentic Workflows",
+        "LLM & Prompt Engineering",
+        "Télétravail (Remote)"
+      ]
+    },
+    {
+      "id": "mcp-7ea105b2-5855-4894-bf6c-9c1516072074",
+      "title": "DIrector of Product, Ecosystem",
+      "company": "Nebius",
+      "location": "United States",
+      "salary_or_rate": "$228k - $285k/an",
+      "url": "https://aidevboard.com/job/nebius/director-of-product-ecosystem-873b5241",
+      "tags": [
+        "cloud",
+        "gpu",
+        "data-pipeline",
+        "agents",
+        "embeddings"
+      ],
+      "source": "ai-dev-jobs-mcp",
+      "summary": "About Nebius: Nebius is leading a new era in cloud infrastructure for the global AI economy. We are building a full-stack AI cloud platform that supports developers and enterprises from data and model training through to production deployment, without the cost and complexity of building large in-house AI/ML infrastructure. Built by engineers, for e...",
+      "timestamp": "2026-09-09T19:11:38Z",
+      "workplace": "remote",
+      "jobType": "full-time",
+      "matchScore": 50,
+      "matchedSkills": [
+        "agents",
+        "fullstack"
+      ],
+      "matchReasons": [
+        "AI Agents / Agentic Workflows",
+        "Fullstack Web Architecture",
+        "Télétravail (Remote)"
+      ]
+    },
+    {
+      "id": "mcp-a81e1a5f-332d-4680-b515-0b98223be092",
+      "title": "Senior AI Product Engineer",
+      "company": "Drata",
+      "location": "San Francisco, CA",
+      "salary_or_rate": "$150k - $230k/an",
+      "url": "https://aidevboard.com/job/drata/senior-ai-product-engineer-frameworks-6423166b",
+      "tags": [
+        "healthcare",
+        "llm",
+        "agents",
+        "rag"
+      ],
+      "source": "ai-dev-jobs-mcp",
+      "summary": "Drata is building the trust layer between great companies - automating compliance, managing risk, and helping organizations prove trust continuously as they scale. We're Dratanauts: a global crew of 600+ professionals united by a culture that rewards integrity, ownership, and raising the bar, no matter where in the world we're working from. Why Joi...",
+      "timestamp": "2026-09-08T23:30:09.318Z",
+      "workplace": "remote",
+      "jobType": "full-time",
+      "matchScore": 80,
+      "matchedSkills": [
+        "rag",
+        "agents",
+        "llm"
+      ],
+      "matchReasons": [
+        "RAG / Vector DB",
+        "AI Agents / Agentic Workflows",
+        "LLM & Prompt Engineering",
+        "Télétravail (Remote)"
+      ]
+    },
+    {
+      "id": "mcp-53da8665-dbaa-4963-8789-47e18de045e6",
+      "title": "Legal Operations Manager",
+      "company": "Firecrawl",
+      "location": "San Francisco, CA",
+      "salary_or_rate": "$140k - $160k/an",
+      "url": "https://aidevboard.com/job/firecrawl/legal-operations-manager-98cdf330",
+      "tags": [
+        "data-pipeline",
+        "payments",
+        "llm",
+        "agents",
+        "legal"
+      ],
+      "source": "ai-dev-jobs-mcp",
+      "summary": "LEGAL OPERATIONS MANAGER You'll be the operational engine behind how Firecrawl's legal function actually runs. Reporting to the General Counsel, this is a build-from-scratch role: as we scale, someone has to stand up the systems, processes, and vendor relationships that let a lean legal team keep pace with a company growing this fast. That's you. T...",
+      "timestamp": "2026-09-08T18:12:40.049Z",
+      "workplace": "remote",
+      "jobType": "full-time",
+      "matchScore": 50,
+      "matchedSkills": [
+        "agents",
+        "llm"
+      ],
+      "matchReasons": [
+        "AI Agents / Agentic Workflows",
+        "LLM & Prompt Engineering",
+        "Télétravail (Remote)"
+      ]
+    },
+    {
+      "id": "mcp-93bcf0fc-cb09-4f2e-8817-fb2e26e7e1db",
+      "title": "Staff Software Engineer, Model Infrastructure",
+      "company": "Harvey AI",
+      "location": "San Francisco, CA",
+      "salary_or_rate": "$231k - $340k/an",
+      "url": "https://aidevboard.com/job/harvey-ai/staff-software-engineer-model-infrastructure-8b8355f2",
+      "tags": [
+        "mlops",
+        "llm",
+        "distributed-systems",
+        "gpu",
+        "cloud",
+        "agents",
+        "infrastructure"
+      ],
+      "source": "ai-dev-jobs-mcp",
+      "summary": "WHY HARVEY At Harvey, we’re transforming how legal and professional services operate. By combining frontier agentic AI, an enterprise-grade platform, and deep domain expertise, we’re reshaping how critical knowledge work gets done for decades to come. This is a rare chance to help build a generational company at a true inflection point. We have str...",
+      "timestamp": "2026-09-06T21:50:17.241Z",
+      "workplace": "remote",
+      "jobType": "full-time",
+      "matchScore": 50,
+      "matchedSkills": [
+        "agents",
+        "llm"
+      ],
+      "matchReasons": [
+        "AI Agents / Agentic Workflows",
+        "LLM & Prompt Engineering",
+        "Télétravail (Remote)"
+      ]
+    },
+    {
+      "id": "mcp-0bc957ce-10c0-4732-bb56-0068e24f1297",
+      "title": "Senior Software Engineer, Model Infrastructure",
+      "company": "Harvey AI",
+      "location": "San Francisco, CA",
+      "salary_or_rate": "$193k - $290k/an",
+      "url": "https://aidevboard.com/job/harvey-ai/senior-software-engineer-model-infrastructure-309b3d26",
+      "tags": [
+        "llm",
+        "cloud",
+        "gpu",
+        "distributed-systems",
+        "mlops",
+        "agents",
+        "infrastructure"
+      ],
+      "source": "ai-dev-jobs-mcp",
+      "summary": "WHY HARVEY At Harvey, we’re transforming how legal and professional services operate. By combining frontier agentic AI, an enterprise-grade platform, and deep domain expertise, we’re reshaping how critical knowledge work gets done for decades to come. This is a rare chance to help build a generational company at a true inflection point. We have str...",
+      "timestamp": "2026-09-06T21:40:28.062Z",
+      "workplace": "remote",
+      "jobType": "full-time",
+      "matchScore": 50,
+      "matchedSkills": [
+        "agents",
+        "llm"
+      ],
+      "matchReasons": [
+        "AI Agents / Agentic Workflows",
+        "LLM & Prompt Engineering",
+        "Télétravail (Remote)"
+      ]
+    },
+    {
+      "id": "mcp-a32afd77-b5b9-4e2f-976c-3cc490810825",
+      "title": "Software Engineer, Security Agents",
+      "company": "Cohere",
+      "location": "United States",
+      "salary_or_rate": "Rémunération non précisée",
+      "url": "https://jobs.ashbyhq.com/cohere/1b909aeb-1221-476f-88fe-8300a2065975/application",
+      "tags": [
+        "agents",
+        "security",
+        "payments",
+        "infrastructure"
+      ],
+      "source": "ai-dev-jobs-mcp",
+      "summary": "Who are we? Cohere is the leading security-first enterprise AI company. We build cutting-edge foundation AI models and end-to-end products that are designed to solve real-world business problems. We’re training and deploying frontier models for enterprises who are building AI systems. We believe that our work is instrumental to the widespread adopt...",
+      "timestamp": "2026-09-14T13:15:03.461Z",
+      "workplace": "remote",
+      "jobType": "full-time",
+      "matchScore": 35,
+      "matchedSkills": [
+        "agents"
+      ],
+      "matchReasons": [
+        "AI Agents / Agentic Workflows",
+        "Télétravail (Remote)"
+      ]
+    },
+    {
+      "id": "mcp-1c8b3211-439f-428a-b366-64fe375f5319",
+      "title": "Backend Engineer, Security Platform",
+      "company": "Vannevar Labs",
+      "location": "Remote",
+      "salary_or_rate": "$150k - $215k/an",
+      "url": "https://job-boards.greenhouse.io/vannevarlabs/jobs/5236303007",
+      "tags": [
+        "security",
+        "agents",
+        "platform",
+        "backend"
+      ],
+      "source": "ai-dev-jobs-mcp",
+      "summary": "Vannevar is a defense technology company building AI to deter our adversaries. In the 21st century, conflict moves at algorithmic speed and foresight equals firepower. Our agentic AI is purpose-built to compete with China—from cross-Strait conflict to gray zone coercion. Trained on the most mission-relevant datasets in defense, our technology model...",
+      "timestamp": "2026-09-12T00:33:15Z",
+      "workplace": "remote",
+      "jobType": "full-time",
+      "matchScore": 35,
+      "matchedSkills": [
+        "agents"
+      ],
+      "matchReasons": [
+        "AI Agents / Agentic Workflows",
+        "Télétravail (Remote)"
+      ]
+    },
+    {
+      "id": "mcp-4badc7d9-f720-4e7c-9b79-5dba22c75318",
+      "title": "Research Engineer, AI for Chip Design",
+      "company": "OpenAI",
+      "location": "San Francisco, CA",
+      "salary_or_rate": "Rémunération non précisée",
+      "url": "https://jobs.ashbyhq.com/openai/bd2b8228-bb0f-42e0-94bd-c853cdd56140/application",
+      "tags": [
+        "agents",
+        "reinforcement-learning",
+        "distributed-systems",
+        "search",
+        "cloud",
+        "research"
+      ],
+      "source": "ai-dev-jobs-mcp",
+      "summary": "ABOUT THE TEAM OpenAI develops models that can reason through complex problems and hardware designed for the demands of advanced AI. AI for Chips connects these efforts: applying increasingly capable AI systems to the work of semiconductor engineering. Our goal is to help engineers develop better chips and shorten design cycles. This work brings re...",
+      "timestamp": "2026-09-11T23:38:19.412Z",
+      "workplace": "remote",
+      "jobType": "full-time",
+      "matchScore": 50,
+      "matchedSkills": [
+        "agents",
+        "llm"
+      ],
+      "matchReasons": [
+        "AI Agents / Agentic Workflows",
+        "LLM & Prompt Engineering",
+        "Télétravail (Remote)"
+      ]
+    },
+    {
+      "id": "mcp-6c5a20f4-b409-4b3c-b380-ba5b698131fc",
+      "title": "Compliance Associate - Bank Sponsorship & Product Expansion",
+      "company": "Rain AI",
+      "location": "New York, NY",
+      "salary_or_rate": "Rémunération non précisée",
+      "url": "https://jobs.ashbyhq.com/rain/e3ca993a-a816-469d-985e-0b8eb2f194f0/application",
+      "tags": [
+        "payments",
+        "agents"
+      ],
+      "source": "ai-dev-jobs-mcp",
+      "summary": "ABOUT THE COMPANY Rain is the global stablecoin payments platform for enterprises, neobanks, platforms, developers, and AI agents. Our technology allows partners to move, store, and use stablecoins instantly and compliantly through global payment cards, rewards, on/offramps, wallets, and cross-border rails. As both a Visa and Mastercard Principal M...",
+      "timestamp": "2026-09-11T22:24:35.669Z",
+      "workplace": "remote",
+      "jobType": "full-time",
+      "matchScore": 35,
+      "matchedSkills": [
+        "agents"
+      ],
+      "matchReasons": [
+        "AI Agents / Agentic Workflows",
+        "Télétravail (Remote)"
+      ]
+    },
+    {
+      "id": "mcp-d0fbd228-8550-48e6-a90d-524d81626cab",
+      "title": "Director, Retention Analytics",
+      "company": "Fetch.ai",
+      "location": "Remote",
+      "salary_or_rate": "$140k - $150k/an",
+      "url": "https://job-boards.greenhouse.io/fetch/jobs/4403796009",
+      "tags": [
+        "payments"
+      ],
+      "source": "ai-dev-jobs-mcp",
+      "summary": "About Fetch At Fetch , we’re dedicated to helping pets live their healthiest and happiest lives. Our comprehensive insurance coverage is designed with modern pet parents in mind, and we’re proud to support the veterinary, shelter, and breeder communities. We believe in ensuring pets receive the best care possible and are committed to making that vi...",
+      "timestamp": "2026-09-11T18:09:14Z",
+      "workplace": "remote",
+      "jobType": "full-time",
+      "matchScore": 0,
+      "matchedSkills": [],
+      "matchReasons": []
+    },
+    {
+      "id": "mcp-455bd8ea-5c72-4d71-ba01-e5fca8dabcc7",
+      "title": "People AI & Automation Engineer",
+      "company": "Deepgram",
+      "location": "United States",
+      "salary_or_rate": "Rémunération non précisée",
+      "url": "https://jobs.ashbyhq.com/deepgram/bf8ea79f-f380-467e-8349-ea1ea8281316/application",
+      "tags": [
+        "generative-ai",
+        "agents",
+        "speech"
+      ],
+      "source": "ai-dev-jobs-mcp",
+      "summary": "COMPANY OVERVIEW Deepgram is the leading platform underpinning the emerging trillion-dollar Voice AI economy, providing real-time APIs for speech-to-text (STT), text-to-speech (TTS), and building production-grade voice agents at scale. More than 200,000 developers and 1,300+ organizations build voice offerings that are ‘Powered by Deepgram’, includ...",
+      "timestamp": "2026-09-11T17:08:43.899Z",
+      "workplace": "remote",
+      "jobType": "full-time",
+      "matchScore": 35,
+      "matchedSkills": [
+        "agents"
+      ],
+      "matchReasons": [
+        "AI Agents / Agentic Workflows",
+        "Télétravail (Remote)"
+      ]
+    },
+    {
+      "id": "mcp-bbceef8f-3aac-4b8d-b348-0de4d2491610",
+      "title": "Senior Software Engineer, Machine Learning Platform",
+      "company": "Chime",
+      "location": "San Francisco, CA",
+      "salary_or_rate": "Rémunération non précisée",
+      "url": "https://boards.greenhouse.io/chime/jobs/8765684002?gh_jid=8765684002",
+      "tags": [
+        "generative-ai",
+        "cloud",
+        "gpu",
+        "rag",
+        "distributed-systems",
+        "payments",
+        "llm",
+        "agents"
+      ],
+      "source": "ai-dev-jobs-mcp",
+      "summary": "About the role Chime’s Machine Learning Platform (MLP) team builds and operates the infrastructure, tooling, and developer experience that powers machine learning across the company. We enable data scientists and ML engineers to develop, train, deploy, and monitor models reliably and efficiently. As a Senior Software Engineer on the Machine Learnin...",
+      "timestamp": "2026-09-11T17:04:27Z",
+      "workplace": "remote",
+      "jobType": "full-time",
+      "matchScore": 80,
+      "matchedSkills": [
+        "rag",
+        "agents",
+        "llm"
+      ],
+      "matchReasons": [
+        "RAG / Vector DB",
+        "AI Agents / Agentic Workflows",
+        "LLM & Prompt Engineering",
+        "Télétravail (Remote)"
+      ]
+    },
+    {
+      "id": "mcp-02a77be8-1872-4e8c-ac22-c91d59543ce8",
+      "title": "Senior Software Engineer, Agent Tracing",
+      "company": "Sentry",
+      "location": "Vienna, Austria",
+      "salary_or_rate": "Rémunération non précisée",
+      "url": "https://jobs.ashbyhq.com/sentry/c796cd46-d80c-4ea8-9b0d-0eecbfc1353e/application",
+      "tags": [
+        "llm",
+        "agents"
+      ],
+      "source": "ai-dev-jobs-mcp",
+      "summary": "ABOUT SENTRY Software runs the world and the pace is faster than ever. Sentry helps developers fix errors and performance issues before users notice, so teams can spend less time firefighting and more time building. Trusted by 200,000+ organizations, Sentry is today’s application monitoring standard and our team is building its AI-native future. AB...",
+      "timestamp": "2026-09-11T11:02:18.086Z",
+      "workplace": "remote",
+      "jobType": "full-time",
+      "matchScore": 50,
+      "matchedSkills": [
+        "agents",
+        "llm"
+      ],
+      "matchReasons": [
+        "AI Agents / Agentic Workflows",
+        "LLM & Prompt Engineering",
+        "Télétravail (Remote)"
+      ]
+    },
+    {
+      "id": "mcp-3a18be88-5daf-4992-9585-44d29fa2ce00",
+      "title": "Product Security Engineer, North Security",
+      "company": "Cohere",
+      "location": "Canada",
+      "salary_or_rate": "Rémunération non précisée",
+      "url": "https://jobs.ashbyhq.com/cohere/9b596ab8-0df4-41aa-85da-e07578c082b2/application",
+      "tags": [
+        "alignment",
+        "security",
+        "agents",
+        "payments",
+        "infrastructure"
+      ],
+      "source": "ai-dev-jobs-mcp",
+      "summary": "Who are we? Cohere is the leading security-first enterprise AI company. We build cutting-edge foundation AI models and end-to-end products that are designed to solve real-world business problems. We’re training and deploying frontier models for enterprises who are building AI systems. We believe that our work is instrumental to the widespread adopt...",
+      "timestamp": "2026-09-11T10:28:01.342Z",
+      "workplace": "remote",
+      "jobType": "full-time",
+      "matchScore": 35,
+      "matchedSkills": [
+        "agents"
+      ],
+      "matchReasons": [
+        "AI Agents / Agentic Workflows",
+        "Télétravail (Remote)"
+      ]
+    },
+    {
+      "id": "mcp-34415284-3918-4b63-a94b-bc2380102f89",
+      "title": "Sr. Manager, AI Forward Deployed Engineering (FDE)",
+      "company": "Databricks",
+      "location": "Remote",
+      "salary_or_rate": "$233k - $320k/an",
+      "url": "https://databricks.com/company/careers/open-positions/job?gh_jid=8779014002",
+      "tags": [
+        "generative-ai"
+      ],
+      "source": "ai-dev-jobs-mcp",
+      "summary": "Sr. Manager, AI Forward Deployed Engineering (FDE) FEQ227R363 Mission The AI Forward Deployed Engineering (AI FDE) team is a highly specialized customer-facing AI team at Databricks. We deliver professional services engagements that help customers build and productionize first-of-its-kind GenAI applications, and we work cross-functionally with AI P...",
+      "timestamp": "2026-09-11T09:35:33Z",
+      "workplace": "remote",
+      "jobType": "full-time",
+      "matchScore": 0,
+      "matchedSkills": [],
+      "matchReasons": []
+    },
+    {
+      "id": "mcp-b5ed61f7-026d-4ff0-a065-a4049b23edda",
+      "title": "Staff Machine Learning Engineer, Video Ingestion & Serving Platform",
+      "company": "Twelve Labs",
+      "location": "Seoul, South Korea",
+      "salary_or_rate": "Rémunération non précisée",
+      "url": "https://jobs.ashbyhq.com/twelve-labs/9e397297-8949-47bf-9c77-bf7b407b3c23/application",
+      "tags": [
+        "cloud",
+        "llm",
+        "gpu",
+        "distributed-systems",
+        "generative-ai",
+        "machine-learning"
+      ],
+      "source": "ai-dev-jobs-mcp",
+      "summary": "WHO WE ARE 영상은 전 세계 데이터의 90%를 차지하지만, 그 대부분은 아직 기계가 이해할 수 없는 영역에 머물러 있습니다. 트웰브랩스(TwelveLabs)는 이 문제를 해결하기 위해 기계가 영상을 이해할 수 있도록 하는 AI 인프라를 구축합니다. 사람보다 더 정교하고 깊이 있게 영상을 이해하는 AI 모델을 통해 영상 속 시·청각 정보를 종합 분석하여 미디어·엔터테인먼트, 스포츠, 보안, 공공 분야 전반의 워크플로우에 적용하고 있습니다. NEA, Radical Ventures, Amazon, NVIDIA, Snowflake, Databricks, Index Ventures, 네이버벤처스, 한국투자파트너스, Qua...",
+      "timestamp": "2026-09-11T06:04:33.733Z",
+      "workplace": "remote",
+      "jobType": "full-time",
+      "matchScore": 25,
+      "matchedSkills": [
+        "llm"
+      ],
+      "matchReasons": [
+        "LLM & Prompt Engineering",
+        "Télétravail (Remote)"
+      ]
+    },
+    {
+      "id": "upwork-2107878601359953717",
+      "title": "Développeur d’applications Web — AI-Assisted / Replit",
+      "company": "Client Upwork (Canada (Québec))",
+      "location": "Canada (Québec) (Remote)",
+      "salary_or_rate": "Taux horaire à définir (Full-Time 30+ hrs/sem)",
+      "url": "https://www.upwork.com/jobs/~022107878601359953717",
+      "tags": [
+        "agents",
+        "llm",
+        "react",
+        "typescript",
+        "fullstack"
+      ],
+      "source": "upwork-sweeper",
+      "summary": "Canada (Québec). Projet long terme > 6 mois. Développeur Full-Stack (React, Next.js, Node.js, TypeScript) utilisant Replit Agent, Claude, Cursor pour accélérer le dev. Instruction piège anti-bot incluse.",
+      "timestamp": "2026-10-07T17:01:22.000Z",
+      "workplace": "remote",
+      "jobType": "hourly",
+      "matchScore": 100,
+      "matchedSkills": [
+        "agents",
+        "llm",
+        "react",
+        "typescript",
+        "fullstack"
+      ],
+      "matchReasons": [
+        "AI Agents / Agentic Workflows",
+        "LLM & Prompt Engineering",
+        "React / Next.js",
+        "TypeScript / Node.js",
+        "Fullstack Web Architecture",
+        "Télétravail (Remote)",
+        "Format Freelance / Contractuel"
+      ]
+    },
+    {
+      "id": "upwork-2107859132154326868",
+      "title": "Attachments can download without a file extension #100579 - Expensify",
+      "company": "Client Upwork (United States)",
+      "location": "United States (Remote)",
+      "salary_or_rate": "$175.00 (Fixed)",
+      "url": "https://www.upwork.com/jobs/~022107859132154326868",
+      "tags": [],
+      "source": "upwork-sweeper",
+      "summary": "Expensify ($12.8M dépensés, 9.8k avis 5/5). 0 Connect requis : candidature directe sur GitHub (issue #100579). Moins de 5 candidats actuellement !",
+      "timestamp": "2026-10-07T15:42:34.000Z",
+      "workplace": "remote",
+      "jobType": "fixed",
+      "matchScore": 0,
+      "matchedSkills": [],
+      "matchReasons": []
+    },
+    {
+      "id": "upwork-2107883466756788021",
+      "title": "Distance - 'This field is required' shown on Address line 1 #103266 - Expensify",
+      "company": "Client Upwork (United States)",
+      "location": "United States (Remote)",
+      "salary_or_rate": "$175.00 (Fixed)",
+      "url": "https://www.upwork.com/jobs/~022107883466756788021",
+      "tags": [
+        "react",
+        "typescript"
+      ],
+      "source": "upwork-sweeper",
+      "summary": "Expensify bug React Native / TypeScript (issue #103266). Formulaire d'adresse et validation de champ requis. 0 Connect requis.",
+      "timestamp": "2026-10-07T17:19:16.000Z",
+      "workplace": "remote",
+      "jobType": "fixed",
+      "matchScore": 55,
+      "matchedSkills": [
+        "react",
+        "typescript"
+      ],
+      "matchReasons": [
+        "React / Next.js",
+        "TypeScript / Node.js",
+        "Télétravail (Remote)",
+        "Format Freelance / Contractuel"
+      ]
+    },
+    {
+      "id": "upwork-2107736074728494953",
+      "title": "Need to check all functionality of website and need to correct them",
+      "company": "Client Upwork (United States)",
+      "location": "United States (Remote)",
+      "salary_or_rate": "$40.00 (Fixed)",
+      "url": "https://www.upwork.com/jobs/~022107736074728494953",
+      "tags": [],
+      "source": "upwork-sweeper",
+      "summary": "WordPress & WooCommerce bug fix : réparer section commandes, formulaires de contact, suppression d'extensions superflues et optimisation de vitesse.",
+      "timestamp": "2026-10-07T07:33:38.000Z",
+      "workplace": "remote",
+      "jobType": "fixed",
+      "matchScore": 0,
+      "matchedSkills": [],
+      "matchReasons": []
+    },
+    {
+      "id": "upwork-2107836504265675184",
+      "title": "update the URL of my wordpress site (Quick 10-min 5-Star Fix)",
+      "company": "Client Upwork (Canada)",
+      "location": "Canada (Remote)",
+      "salary_or_rate": "$5.00 (Fixed)",
+      "url": "https://www.upwork.com/jobs/~022107836504265675184",
+      "tags": [],
+      "source": "upwork-sweeper",
+      "summary": "Client au Canada ($9,389 dépensés, 191 contrats, 4.95/5). Problème de lien de test serveur au lieu du nom de domaine principal sur WordPress. 10 minutes d'intervention pour un avis 5 étoiles.",
+      "timestamp": "2026-10-07T14:13:18.000Z",
+      "workplace": "remote",
+      "jobType": "fixed",
+      "matchScore": 0,
+      "matchedSkills": [],
+      "matchReasons": []
+    },
+    {
+      "id": "upwork-2106934708880012541",
+      "title": "Wordpress / WooCommerce Emails Not Working (30 min Quick Fix)",
+      "company": "Client Upwork (United States)",
+      "location": "United States (Remote)",
+      "salary_or_rate": "$50.00 (Fixed)",
+      "url": "https://www.upwork.com/jobs/~022106934708880012541",
+      "tags": [
+        "php"
+      ],
+      "source": "upwork-sweeper",
+      "summary": "WooCommerce emails stopped sending to admin and customers. Classic SMTP / PHP mail / WP-Cron diagnostic. Client name: Justin Olguin ($3,711 spent, 27 hires). Exactly 11 Connects required.",
+      "timestamp": "2026-10-05T03:01:08.569Z",
+      "workplace": "remote",
+      "jobType": "fixed",
+      "matchScore": 45,
+      "matchedSkills": [
+        "php"
+      ],
+      "matchReasons": [
+        "PHP",
+        "Télétravail (Remote)",
+        "Format Freelance / Contractuel"
+      ]
+    },
+    {
+      "id": "upwork-2106889895602235424",
+      "title": "WordPress Developer Needed - Theme Migration (1 hour quick task)",
+      "company": "Client Upwork (United States)",
+      "location": "United States (Remote)",
+      "salary_or_rate": "$30.00 (Fixed)",
+      "url": "https://www.upwork.com/jobs/~022106889895602235424",
+      "tags": [],
+      "source": "upwork-sweeper",
+      "summary": "Replace Hostinger Affiliate theme on onabudgetblog.com with Astra/Kadence/Blocksy. 1 hour estimated effort. Client name: Melissa. Exactly 11 Connects required.",
+      "timestamp": "2026-10-05T01:00:59.965Z",
+      "workplace": "remote",
+      "jobType": "fixed",
+      "matchScore": 0,
+      "matchedSkills": [],
+      "matchReasons": []
+    },
+    {
+      "id": "upwork-2106816387965914957",
+      "title": "Expensify ($175) - Inconsistent Concierge Offline Message Behavior #102100",
+      "company": "Client Upwork (United States)",
+      "location": "United States (Remote)",
+      "salary_or_rate": "$175.00 (Fixed)",
+      "url": "https://www.upwork.com/jobs/~022106816387965914957",
+      "tags": [
+        "react",
+        "typescript"
+      ],
+      "source": "upwork-sweeper",
+      "summary": "Expensify ($12.8M spent, 9.8k reviews). Candidature gratuite directement sur GitHub : github.com/Expensify/App/issues/102100. Bug React Native / TypeScript sans dépenser de Connects.",
+      "timestamp": "2026-10-04T23:01:24.059Z",
+      "workplace": "remote",
+      "jobType": "fixed",
+      "matchScore": 55,
+      "matchedSkills": [
+        "react",
+        "typescript"
+      ],
+      "matchReasons": [
+        "React / Next.js",
+        "TypeScript / Node.js",
+        "Télétravail (Remote)",
+        "Format Freelance / Contractuel"
+      ]
+    },
+    {
+      "id": "upwork-2106821384418830368",
+      "title": "Self-Hosted Omnichannel CRM Platform (PHP & Twilio / WhatsApp)",
+      "company": "Client Upwork (United Kingdom)",
+      "location": "United Kingdom (Remote)",
+      "salary_or_rate": "$300.00 (Fixed)",
+      "url": "https://www.upwork.com/jobs/~022106821384418830368",
+      "tags": [
+        "php",
+        "api"
+      ],
+      "source": "upwork-sweeper",
+      "summary": "Build a self-hosted CRM platform supporting WhatsApp, SMS, Twilio, email and webhooks. Exactement 11 Connects requis.",
+      "timestamp": "2026-10-04T23:01:24.070Z",
+      "workplace": "remote",
+      "jobType": "fixed",
+      "matchScore": 55,
+      "matchedSkills": [
+        "php",
+        "api"
+      ],
+      "matchReasons": [
+        "PHP",
+        "REST APIs & Webhooks",
+        "Télétravail (Remote)",
+        "Format Freelance / Contractuel"
+      ]
+    },
+    {
+      "id": "upwork-2106425895840118013",
+      "title": "Senior Laravel + Filament Security Code Reviewer",
+      "company": "Client Upwork (Worldwide)",
+      "location": "Worldwide (Remote)",
+      "salary_or_rate": "$110.00",
+      "url": "https://www.upwork.com/jobs/~022106425895840118013",
+      "tags": [
+        "laravel",
+        "sql"
+      ],
+      "source": "upwork-sweeper",
+      "summary": "Focused code and security review of 1 Pull Request on Laravel / Filament / MySQL. Assess auth separation, transactions, session behavior, and access control. 110 USD fixed.",
+      "timestamp": "2026-10-04T21:01:37.581Z",
+      "workplace": "remote",
+      "jobType": "fixed",
+      "matchScore": 65,
+      "matchedSkills": [
+        "laravel",
+        "sql"
+      ],
+      "matchReasons": [
+        "Laravel",
+        "SQL / PostgreSQL / MySQL",
+        "Télétravail (Remote)",
+        "Format Freelance / Contractuel"
+      ]
+    },
+    {
+      "id": "upwork-2106801099959432445",
+      "title": "Fix the withdrawal request system on my website (PHP & Payments)",
+      "company": "Client Upwork (Verified Client)",
+      "location": "Verified Client (Remote)",
+      "salary_or_rate": "$10.00",
+      "url": "https://www.upwork.com/jobs/~022106801099959432445",
+      "tags": [
+        "php"
+      ],
+      "source": "upwork-sweeper",
+      "summary": "There is an error in the website payment request/withdrawal system. PHP backend fix required. Client name: Umer (100% 5-star history).",
+      "timestamp": "2026-10-04T19:02:03.665Z",
+      "workplace": "remote",
+      "jobType": "fixed",
+      "matchScore": 45,
+      "matchedSkills": [
+        "php"
+      ],
+      "matchReasons": [
+        "PHP",
+        "Télétravail (Remote)",
+        "Format Freelance / Contractuel"
+      ]
+    },
+    {
+      "id": "upwork-2106782456428385491",
+      "title": "Convert Pine Script Trading Strategy to C++",
+      "company": "Client Upwork (USA)",
+      "location": "USA (Remote)",
+      "salary_or_rate": "Hourly (Taux à négocier)",
+      "url": "https://www.upwork.com/jobs/~022106782456428385491",
+      "tags": [],
+      "source": "upwork-sweeper",
+      "summary": "Looking for an experienced developer with strong knowledge of Pine Script and algorithmic trading logic to convert an existing TradingView strategy into C++/Node. Perfect match with trading bot experience.",
+      "timestamp": "2026-10-04T17:01:35.353Z",
+      "workplace": "remote",
+      "jobType": "hourly",
+      "matchScore": 0,
+      "matchedSkills": [],
+      "matchReasons": []
+    },
+    {
+      "id": "upwork-2106692270157148555",
+      "title": "Fix ACF Dynamic Content in Elementor Service Templates",
+      "company": "Client Upwork (United States)",
+      "location": "United States (Remote)",
+      "salary_or_rate": "$30.00",
+      "url": "https://www.upwork.com/jobs/~022106692270157148555",
+      "tags": [
+        "php"
+      ],
+      "source": "upwork-sweeper",
+      "summary": "WordPress & PHP bug fix: dynamic template service pages have ACF fields not displaying correctly. Need quick resolution.",
+      "timestamp": "2026-10-04T17:01:35.357Z",
+      "workplace": "remote",
+      "jobType": "fixed",
+      "matchScore": 45,
+      "matchedSkills": [
+        "php"
+      ],
+      "matchReasons": [
+        "PHP",
+        "Télétravail (Remote)",
+        "Format Freelance / Contractuel"
+      ]
+    },
+    {
+      "id": "upwork-2106755987796341131",
+      "title": "WordPress Developer Needed to Design a High-Converting Landing Page",
+      "company": "Client Upwork (Canada)",
+      "location": "Canada (Remote)",
+      "salary_or_rate": "$50.00",
+      "url": "https://www.upwork.com/jobs/~022106755987796341131",
+      "tags": [],
+      "source": "upwork-sweeper",
+      "summary": "High-converting landing page for a business. Client based in Canada, verified payment, $2,299 spent.",
+      "timestamp": "2026-10-04T17:01:35.357Z",
+      "workplace": "remote",
+      "jobType": "fixed",
+      "matchScore": 0,
+      "matchedSkills": [],
+      "matchReasons": []
+    }
+  ]
+}

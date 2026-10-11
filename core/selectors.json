@@ -1,0 +1,513 @@
+{
+  "version": "1.0.0",
+  "name": "Freelance Gigs Studio - DOM Selectors Mapping",
+  "description": "Cartographie robuste et découplée des sélecteurs DOM pour ComeUp et Fiverr avec arrêt strict au stade brouillon.",
+  "platforms": {
+    "comeup": {
+      "name": "ComeUp",
+      "baseUrl": "https://comeup.com",
+      "newServiceUrl": "https://comeup.com/dashboard/services/nouveau",
+      "editServiceUrlPattern": "https://comeup.com/dashboard/services/:id/modifier",
+      "safetyPolicy": {
+        "allowPublish": false,
+        "enforceDraft": true,
+        "stopAt": "saveDraft",
+        "notice": "ARRÊT STRICT AU STADE BROUILLON : La publication finale est réservée à l'opérateur humain."
+      },
+      "selectors": {
+        "title": {
+          "selector": "input[name=\"title\"], #service_title, input[placeholder*=\"Je vais\"]",
+          "fallback": ["input.service-title-input", "#service-title"],
+          "type": "text",
+          "requiredPrefix": "Je vais",
+          "maxLength": 90,
+          "description": "Titre du microservice ComeUp (ex: 'Je vais créer votre Agent IA...')"
+        },
+        "category": {
+          "selector": "select[name=\"category\"], select#service_category, [data-field=\"category\"] select",
+          "fallback": [".service-category-select", "select[name=\"category_id\"]"],
+          "type": "select",
+          "description": "Catégorie principale (ex: 'Développement & Programmation')"
+        },
+        "subcategory": {
+          "selector": "select[name=\"subcategory\"], select#service_subcategory, [data-field=\"subcategory\"] select",
+          "fallback": [".service-subcategory-select", "select[name=\"sub_category_id\"]"],
+          "type": "select",
+          "description": "Sous-catégorie (ex: 'Intelligence Artificielle & Automatisation')"
+        },
+        "baseOffer": {
+          "name": {
+            "selector": "input[name=\"base_offer_name\"], input[name=\"starter_title\"], #base-offer-name",
+            "fallback": ["input[placeholder*=\"Intitulé de l'offre\"]", ".base-offer-name-input"],
+            "type": "text",
+            "description": "Nom de l'offre de base"
+          },
+          "price": {
+            "selector": "input[name=\"price\"], input[name=\"base_price\"], #service_price",
+            "fallback": ["input[name=\"amount\"]", ".base-price-input"],
+            "type": "number",
+            "step": 5,
+            "min": 5,
+            "description": "Prix de l'offre de base en Euros (multiple de 5)"
+          },
+          "deliveryDays": {
+            "selector": "select[name=\"delivery_days\"], select[name=\"delay\"], #service_delay",
+            "fallback": ["input[name=\"delivery_days\"]", ".base-delay-select"],
+            "type": "select",
+            "description": "Délai de réalisation de base en jours"
+          },
+          "description": {
+            "selector": "textarea[name=\"base_description\"], textarea#base_description",
+            "fallback": [".base-offer-desc-textarea", "textarea[placeholder*=\"offre de base\"]"],
+            "type": "textarea",
+            "description": "Description succincte de l'offre de base"
+          }
+        },
+        "description": {
+          "editor": {
+            "selector": ".ck-editor__editable, .ql-editor, div[contenteditable=\"true\"], textarea[name=\"description\"]",
+            "fallback": ["#service_description_editor", ".rich-text-editor", "textarea#description"],
+            "type": "rich-text",
+            "format": "html",
+            "description": "Éditeur riche WYSIWYG de la description complète du service"
+          }
+        },
+        "options": {
+          "addButton": {
+            "selector": "button:has-text(\"Ajouter une option\"), button.add-option-btn, [data-action=\"add-option\"]",
+            "fallback": ["a:has-text(\"Ajouter une option\")", ".btn-add-option"],
+            "type": "button",
+            "description": "Bouton pour ajouter une nouvelle option tarifaire"
+          },
+          "container": {
+            "selector": ".options-container, #service-options-list, .service-options",
+            "fallback": [".options-list", "[data-section=\"options\"]"],
+            "type": "container",
+            "description": "Conteneur de la liste des options"
+          },
+          "item": {
+            "selector": ".option-item, .service-option-row, [data-option-item]",
+            "fallback": [".option-row", ".form-group-option"],
+            "type": "item",
+            "description": "Ligne d'une option individuelle"
+          },
+          "fields": {
+            "name": {
+              "selector": "input[name*=\"option_name\"], input[name*=\"title\"], .option-title-input",
+              "fallback": ["input[placeholder*=\"Nom de l'option\"]"],
+              "type": "text",
+              "description": "Intitulé de l'option"
+            },
+            "price": {
+              "selector": "input[name*=\"option_price\"], input[name*=\"price\"], .option-price-input",
+              "fallback": ["input[placeholder*=\"Prix\"]"],
+              "type": "number",
+              "step": 5,
+              "description": "Prix additionnel de l'option en Euros"
+            },
+            "additionalDays": {
+              "selector": "select[name*=\"option_delay\"], select[name*=\"delay\"], .option-delay-select",
+              "fallback": ["input[name*=\"option_delay\"]", "select[name*=\"additional_days\"]"],
+              "type": "select",
+              "description": "Jours additionnels de réalisation"
+            },
+            "description": {
+              "selector": "textarea[name*=\"option_description\"], textarea.option-desc-input",
+              "fallback": ["textarea[placeholder*=\"Description de l'option\"]"],
+              "type": "textarea",
+              "description": "Détails et livrables de l'option"
+            }
+          }
+        },
+        "thumbnail": {
+          "fileInput": {
+            "selector": "input[type=\"file\"][accept*=\"image\"], input[name=\"service_image\"], #thumbnail-upload-input",
+            "fallback": ["input[type=\"file\"][name*=\"image\"]", ".dropzone input[type=\"file\"]"],
+            "type": "file",
+            "description": "Input de téléversement de la miniature principale (1280x769 px)"
+          },
+          "dropzone": {
+            "selector": ".dropzone, .image-upload-dropzone, label[for*=\"image\"], .thumbnail-dropzone",
+            "fallback": [".media-uploader", "[data-upload=\"thumbnail\"]"],
+            "type": "container",
+            "description": "Zone de glisser-déposer de la miniature"
+          }
+        },
+        "actions": {
+          "saveDraft": {
+            "selector": "button:has-text(\"Enregistrer le brouillon\"), button:has-text(\"Brouillon\"), button[name=\"save_draft\"], .btn-save-draft",
+            "fallback": ["button:has-text(\"Sauvegarder en brouillon\")", "input[type=\"submit\"][value*=\"brouillon\"]"],
+            "type": "button",
+            "safetyLevel": "SAFE",
+            "description": "Action autorisée : Sauvegarde en brouillon (statut inactif / draft)"
+          },
+          "forbiddenPublish": {
+            "selector": "button:has-text(\"Soumettre pour validation\"), button:has-text(\"Publier\"), .btn-publish, button[type=\"submit\"]:not([name=\"save_draft\"])",
+            "fallback": ["button:has-text(\"Demander la validation\")"],
+            "type": "button",
+            "safetyLevel": "FORBIDDEN",
+            "description": "ACTION STRICTEMENT INTERDITE AUTOMATIQUEMENT. L'opérateur humain valide ce bouton."
+          }
+        }
+      }
+    },
+    "fiverr": {
+      "name": "Fiverr",
+      "baseUrl": "https://www.fiverr.com",
+      "newGigUrl": "https://www.fiverr.com/manage_gigs/new",
+      "editGigUrlPattern": "https://www.fiverr.com/manage_gigs/:id/edit",
+      "safetyPolicy": {
+        "allowPublish": false,
+        "enforceDraft": true,
+        "stopAt": "step6_publish.saveAsDraft",
+        "notice": "ARRÊT STRICT AU STADE BROUILLON : Ne jamais cliquer sur 'Publish Gig'. Validation humaine requise."
+      },
+      "steps": {
+        "step1_overview": {
+          "stepIndex": 1,
+          "stepName": "Overview",
+          "urlPattern": "/manage_gigs/new|step=overview",
+          "selectors": {
+            "gigTitle": {
+              "selector": "textarea[name=\"gig[title]\"], textarea.gig-title-input, textarea[placeholder*=\"I will\"], #gig_title",
+              "fallback": ["input[name=\"gig[title]\"]", ".title-input textarea"],
+              "type": "textarea",
+              "requiredPrefix": "I will",
+              "maxLength": 80,
+              "description": "Titre du service Fiverr (ex: 'I will build custom AI agents...')"
+            },
+            "categorySelect": {
+              "selector": "select[name=\"gig[category_id]\"], .category-select select, #category_id",
+              "fallback": ["[data-testid=\"category-select\"]", "select.category-dropdown"],
+              "type": "select",
+              "description": "Catégorie principale (ex: 'AI Services' ou 'Programming & Tech')"
+            },
+            "subcategorySelect": {
+              "selector": "select[name=\"gig[sub_category_id]\"], .subcategory-select select, #sub_category_id",
+              "fallback": ["[data-testid=\"subcategory-select\"]", "select.subcategory-dropdown"],
+              "type": "select",
+              "description": "Sous-catégorie Fiverr"
+            },
+            "serviceType": {
+              "selector": "select[name=\"gig[service_type]\"], .service-type-select select",
+              "fallback": ["[data-testid=\"service-type-select\"]"],
+              "type": "select",
+              "optional": true,
+              "description": "Type de service spécifique (si demandé par la catégorie)"
+            },
+            "searchTags": {
+              "input": {
+                "selector": "input[placeholder*=\"tag\"], .tags-input input, .tag-field input, input[name=\"gig[tags]\"]",
+                "fallback": ["[data-testid=\"tag-input\"]", ".tags-editor input"],
+                "type": "text",
+                "maxTags": 5,
+                "maxTagLength": 20,
+                "description": "Champ de saisie des 5 tags de recherche (terminé par Enter)"
+              },
+              "container": {
+                "selector": ".tags-container, .tag-chips, ul.tags-list, .tags-editor",
+                "fallback": [".tags-wrapper"],
+                "type": "container",
+                "description": "Conteneur des tags ajoutés"
+              }
+            },
+            "saveAndContinue": {
+              "selector": "button:has-text(\"Save & Continue\"), button.btn-save-continue, .save-and-continue",
+              "fallback": ["button[type=\"submit\"]:has-text(\"Save\")", ".btn-save"],
+              "type": "button",
+              "description": "Sauvegarde et passage à l'étape Pricing"
+            },
+            "saveAsDraft": {
+              "selector": "button:has-text(\"Save as Draft\"), button:has-text(\"Save Draft\"), .save-as-draft-btn",
+              "fallback": ["a:has-text(\"Save as Draft\")", ".btn-draft"],
+              "type": "button",
+              "safetyLevel": "SAFE",
+              "description": "Sauvegarde intermédiaire en brouillon"
+            }
+          }
+        },
+        "step2_pricing": {
+          "stepIndex": 2,
+          "stepName": "Pricing",
+          "urlPattern": "step=pricing|/pricing",
+          "selectors": {
+            "threePackagesToggle": {
+              "selector": "input[type=\"checkbox\"][name*=\"packages\"], .packages-toggle input, label:has-text(\"Offer Packages\") input",
+              "fallback": ["[data-testid=\"3-packages-toggle\"]", ".toggle-packages input"],
+              "type": "checkbox",
+              "description": "Interrupteur activant le mode 3 packages (Basic / Standard / Premium)"
+            },
+            "packages": {
+              "basic": {
+                "name": {
+                  "selector": "input[name*=\"packages[0][title]\"], textarea[placeholder*=\"Name your package\"]:nth-of-type(1), .package-name-basic",
+                  "fallback": ["[data-package=\"basic\"] input[name*=\"title\"]"],
+                  "type": "text",
+                  "maxLength": 100,
+                  "description": "Nom du package Basic"
+                },
+                "description": {
+                  "selector": "textarea[name*=\"packages[0][description]\"], textarea[placeholder*=\"Describe the details\"]:nth-of-type(1)",
+                  "fallback": ["[data-package=\"basic\"] textarea[name*=\"description\"]"],
+                  "type": "textarea",
+                  "maxLength": 100,
+                  "description": "Description du package Basic (<= 100 car)"
+                },
+                "deliveryDays": {
+                  "selector": "select[name*=\"packages[0][delivery_time]\"], .delivery-select-basic, select[name*=\"delivery\"]:nth-of-type(1)",
+                  "fallback": ["[data-package=\"basic\"] select[name*=\"delivery\"]"],
+                  "type": "select",
+                  "description": "Délai de livraison Basic"
+                },
+                "revisions": {
+                  "selector": "select[name*=\"packages[0][revisions]\"], .revisions-select-basic, select[name*=\"revisions\"]:nth-of-type(1)",
+                  "fallback": ["[data-package=\"basic\"] select[name*=\"revisions\"]"],
+                  "type": "select",
+                  "description": "Nombre de révisions Basic"
+                },
+                "price": {
+                  "selector": "input[name*=\"packages[0][price]\"], select[name*=\"packages[0][price]\"], .price-select-basic",
+                  "fallback": ["[data-package=\"basic\"] input[name*=\"price\"]", "[data-package=\"basic\"] select[name*=\"price\"]"],
+                  "type": "number",
+                  "description": "Prix du package Basic ($)"
+                }
+              },
+              "standard": {
+                "name": {
+                  "selector": "input[name*=\"packages[1][title]\"], textarea[placeholder*=\"Name your package\"]:nth-of-type(2), .package-name-standard",
+                  "fallback": ["[data-package=\"standard\"] input[name*=\"title\"]"],
+                  "type": "text",
+                  "maxLength": 100,
+                  "description": "Nom du package Standard"
+                },
+                "description": {
+                  "selector": "textarea[name*=\"packages[1][description]\"], textarea[placeholder*=\"Describe the details\"]:nth-of-type(2)",
+                  "fallback": ["[data-package=\"standard\"] textarea[name*=\"description\"]"],
+                  "type": "textarea",
+                  "maxLength": 100,
+                  "description": "Description du package Standard (<= 100 car)"
+                },
+                "deliveryDays": {
+                  "selector": "select[name*=\"packages[1][delivery_time]\"], .delivery-select-standard, select[name*=\"delivery\"]:nth-of-type(2)",
+                  "fallback": ["[data-package=\"standard\"] select[name*=\"delivery\"]"],
+                  "type": "select",
+                  "description": "Délai de livraison Standard"
+                },
+                "revisions": {
+                  "selector": "select[name*=\"packages[1][revisions]\"], .revisions-select-standard, select[name*=\"revisions\"]:nth-of-type(2)",
+                  "fallback": ["[data-package=\"standard\"] select[name*=\"revisions\"]"],
+                  "type": "select",
+                  "description": "Nombre de révisions Standard"
+                },
+                "price": {
+                  "selector": "input[name*=\"packages[1][price]\"], select[name*=\"packages[1][price]\"], .price-select-standard",
+                  "fallback": ["[data-package=\"standard\"] input[name*=\"price\"]", "[data-package=\"standard\"] select[name*=\"price\"]"],
+                  "type": "number",
+                  "description": "Prix du package Standard ($)"
+                }
+              },
+              "premium": {
+                "name": {
+                  "selector": "input[name*=\"packages[2][title]\"], textarea[placeholder*=\"Name your package\"]:nth-of-type(3), .package-name-premium",
+                  "fallback": ["[data-package=\"premium\"] input[name*=\"title\"]"],
+                  "type": "text",
+                  "maxLength": 100,
+                  "description": "Nom du package Premium"
+                },
+                "description": {
+                  "selector": "textarea[name*=\"packages[2][description]\"], textarea[placeholder*=\"Describe the details\"]:nth-of-type(3)",
+                  "fallback": ["[data-package=\"premium\"] textarea[name*=\"description\"]"],
+                  "type": "textarea",
+                  "maxLength": 100,
+                  "description": "Description du package Premium (<= 100 car)"
+                },
+                "deliveryDays": {
+                  "selector": "select[name*=\"packages[2][delivery_time]\"], .delivery-select-premium, select[name*=\"delivery\"]:nth-of-type(3)",
+                  "fallback": ["[data-package=\"premium\"] select[name*=\"delivery\"]"],
+                  "type": "select",
+                  "description": "Délai de livraison Premium"
+                },
+                "revisions": {
+                  "selector": "select[name*=\"packages[2][revisions]\"], .revisions-select-premium, select[name*=\"revisions\"]:nth-of-type(3)",
+                  "fallback": ["[data-package=\"premium\"] select[name*=\"revisions\"]"],
+                  "type": "select",
+                  "description": "Nombre de révisions Premium"
+                },
+                "price": {
+                  "selector": "input[name*=\"packages[2][price]\"], select[name*=\"packages[2][price]\"], .price-select-premium",
+                  "fallback": ["[data-package=\"premium\"] input[name*=\"price\"]", "[data-package=\"premium\"] select[name*=\"price\"]"],
+                  "type": "number",
+                  "description": "Prix du package Premium ($)"
+                }
+              }
+            },
+            "saveAndContinue": {
+              "selector": "button:has-text(\"Save & Continue\"), button.btn-save-continue",
+              "fallback": ["button[type=\"submit\"]:has-text(\"Save\")"],
+              "type": "button",
+              "description": "Sauvegarde et passage à l'étape Description"
+            },
+            "saveAsDraft": {
+              "selector": "button:has-text(\"Save as Draft\"), button:has-text(\"Save Draft\")",
+              "fallback": ["a:has-text(\"Save as Draft\")"],
+              "type": "button",
+              "safetyLevel": "SAFE",
+              "description": "Sauvegarde en brouillon"
+            }
+          }
+        },
+        "step3_description": {
+          "stepIndex": 3,
+          "stepName": "Description",
+          "urlPattern": "step=description|/description",
+          "selectors": {
+            "descriptionEditor": {
+              "selector": ".ql-editor, div[contenteditable=\"true\"], textarea[name=\"gig[description]\"], .description-editor",
+              "fallback": ["[data-testid=\"description-editor\"]", "#description_editor"],
+              "type": "rich-text",
+              "maxLength": 1200,
+              "description": "Éditeur de description complète Fiverr (<= 1200 car)"
+            },
+            "faqSection": {
+              "addButton": {
+                "selector": "button:has-text(\"Add FAQ\"), button:has-text(\"+ Add FAQ\"), .add-faq-btn",
+                "fallback": ["a:has-text(\"Add FAQ\")", "[data-testid=\"add-faq\"]"],
+                "type": "button",
+                "description": "Bouton d'ajout d'une FAQ"
+              },
+              "questionInput": {
+                "selector": "input[name*=\"faq_question\"], input[placeholder*=\"Add a Question\"], .faq-question-input",
+                "fallback": ["input[name*=\"question\"]"],
+                "type": "text",
+                "description": "Question de la FAQ"
+              },
+              "answerInput": {
+                "selector": "textarea[name*=\"faq_answer\"], textarea[placeholder*=\"Add an Answer\"], .faq-answer-input",
+                "fallback": ["textarea[name*=\"answer\"]"],
+                "type": "textarea",
+                "description": "Réponse de la FAQ"
+              },
+              "confirmButton": {
+                "selector": "button:has-text(\"Add\"), button:has-text(\"Save FAQ\"), .confirm-add-faq",
+                "fallback": [".btn-save-faq"],
+                "type": "button",
+                "description": "Confirmation d'ajout de la FAQ"
+              }
+            },
+            "saveAndContinue": {
+              "selector": "button:has-text(\"Save & Continue\"), button.btn-save-continue",
+              "fallback": ["button[type=\"submit\"]:has-text(\"Save\")"],
+              "type": "button",
+              "description": "Sauvegarde et passage à l'étape Requirements"
+            },
+            "saveAsDraft": {
+              "selector": "button:has-text(\"Save as Draft\"), button:has-text(\"Save Draft\")",
+              "fallback": ["a:has-text(\"Save as Draft\")"],
+              "type": "button",
+              "safetyLevel": "SAFE",
+              "description": "Sauvegarde en brouillon"
+            }
+          }
+        },
+        "step4_requirements": {
+          "stepIndex": 4,
+          "stepName": "Requirements",
+          "urlPattern": "step=requirements|/requirements",
+          "selectors": {
+            "addRequirementButton": {
+              "selector": "button:has-text(\"Add New Requirement\"), button:has-text(\"Add a requirement\"), .add-requirement-btn",
+              "fallback": ["a:has-text(\"Add New Requirement\")", "[data-testid=\"add-requirement\"]"],
+              "type": "button",
+              "description": "Bouton d'ajout d'une exigence client"
+            },
+            "requirementInput": {
+              "selector": "textarea[placeholder*=\"requirement\"], textarea[name*=\"requirement_text\"], .requirement-textarea",
+              "fallback": ["textarea[name*=\"question\"]"],
+              "type": "textarea",
+              "description": "Texte de l'exigence demandée à l'acheteur"
+            },
+            "requirementType": {
+              "selector": "select[name*=\"requirement_type\"], input[value=\"free_text\"], .requirement-type-select",
+              "fallback": ["[data-type=\"free_text\"]"],
+              "type": "select",
+              "defaultValue": "Free text",
+              "description": "Type de réponse (Free text)"
+            },
+            "confirmButton": {
+              "selector": "button:has-text(\"Add\"), button:has-text(\"Save\"), .confirm-requirement-btn",
+              "fallback": [".btn-save-requirement"],
+              "type": "button",
+              "description": "Validation de l'exigence"
+            },
+            "saveAndContinue": {
+              "selector": "button:has-text(\"Save & Continue\"), button.btn-save-continue",
+              "fallback": ["button[type=\"submit\"]:has-text(\"Save\")"],
+              "type": "button",
+              "description": "Sauvegarde et passage à l'étape Gallery"
+            },
+            "saveAsDraft": {
+              "selector": "button:has-text(\"Save as Draft\"), button:has-text(\"Save Draft\")",
+              "fallback": ["a:has-text(\"Save as Draft\")"],
+              "type": "button",
+              "safetyLevel": "SAFE",
+              "description": "Sauvegarde en brouillon"
+            }
+          }
+        },
+        "step5_gallery": {
+          "stepIndex": 5,
+          "stepName": "Gallery",
+          "urlPattern": "step=gallery|/gallery",
+          "selectors": {
+            "thumbnailInput": {
+              "selector": "input[type=\"file\"][accept*=\"image\"], .gig-image-uploader input[type=\"file\"], input[name*=\"gig_image\"]",
+              "fallback": [".gallery-uploader input[type=\"file\"]", "input[type=\"file\"]:nth-of-type(1)"],
+              "type": "file",
+              "description": "Input de téléversement de l'image de couverture Fiverr (1280x769 px)"
+            },
+            "dropzone": {
+              "selector": ".drag-drop-zone, .gig-image-uploader, .image-box, [data-testid=\"image-uploader\"]",
+              "fallback": [".gallery-dropzone"],
+              "type": "container",
+              "description": "Zone de glisser-déposer de la galerie"
+            },
+            "saveAndContinue": {
+              "selector": "button:has-text(\"Save & Continue\"), button.btn-save-continue",
+              "fallback": ["button[type=\"submit\"]:has-text(\"Save\")"],
+              "type": "button",
+              "description": "Sauvegarde et passage à l'étape finale Publish"
+            },
+            "saveAsDraft": {
+              "selector": "button:has-text(\"Save as Draft\"), button:has-text(\"Save Draft\")",
+              "fallback": ["a:has-text(\"Save as Draft\")"],
+              "type": "button",
+              "safetyLevel": "SAFE",
+              "description": "Sauvegarde en brouillon"
+            }
+          }
+        },
+        "step6_publish": {
+          "stepIndex": 6,
+          "stepName": "Publish",
+          "urlPattern": "step=publish|/publish",
+          "selectors": {
+            "saveAsDraft": {
+              "selector": "button:has-text(\"Save as Draft\"), button:has-text(\"Save Draft\"), .save-as-draft-btn",
+              "fallback": ["a:has-text(\"Save as Draft\")", ".btn-draft"],
+              "type": "button",
+              "safetyLevel": "SAFE",
+              "description": "Action autorisée : Sauvegarder et rester en statut Draft (Brouillon)"
+            },
+            "forbiddenPublish": {
+              "selector": "button:has-text(\"Publish Gig\"), button.btn-publish-gig, button:has-text(\"Publish\")",
+              "fallback": [".btn-publish", "[data-testid=\"publish-gig-btn\"]"],
+              "type": "button",
+              "safetyLevel": "FORBIDDEN",
+              "description": "ACTION STRICTEMENT INTERDITE AUTOMATIQUEMENT. L'opérateur humain valide ce bouton."
+            }
+          }
+        }
+      }
+    }
+  }
+}

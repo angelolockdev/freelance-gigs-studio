@@ -7,8 +7,18 @@
   "scripts": {
     "validate": "node core/gig-validator.js",
     "export": "node core/export-gigs.js",
-    "test": "node core/gig-validator.js && node test/validator-test.js",
-    "start": "node dashboard/server.js"
+    "thumbnails": "node core/thumbnail-builder.js",
+    "inject": "node core/browser-injector.js",
+    "radar": "node core/market-radar.js",
+    "test:validator": "node core/gig-validator.js && node test/validator-test.js",
+    "test:thumbnails": "node test/thumbnail-test.js",
+    "test:injector": "node test/injector-test.js",
+    "test:radar": "node test/radar-test.js",
+    "test:dashboard": "node test/dashboard-test.js",
+    "test": "node core/gig-validator.js && node test/validator-test.js && node test/thumbnail-test.js && node test/injector-test.js && node test/radar-test.js && node test/dashboard-test.js",
+    "start": "node dashboard/server.js",
+    "studio": "node dashboard/server.js",
+    "build:pages": "node scripts/build-pages.js"
   },
   "keywords": [
     "freelance",

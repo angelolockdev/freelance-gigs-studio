@@ -2,14 +2,18 @@
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ComeUp Export - ai-rag-agent</title>
   <style>
-    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #1e293b; max-width: 900px; margin: 40px auto; padding: 0 20px; background: #f8fafc; }
-    .card { background: white; border-radius: 12px; padding: 28px; margin-bottom: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; }
+    body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; line-height: 1.6; color: #1e293b; max-width: 960px; margin: 40px auto; padding: 0 20px; background: #f8fafc; }
+    .card { background: white; border-radius: 12px; padding: 28px; margin-bottom: 24px; box-shadow: 0 4px 6px -1px rgba(0,0,0,0.05), 0 2px 4px -2px rgba(0,0,0,0.05); border: 1px solid #e2e8f0; position: relative; }
     h1 { color: #0f172a; border-bottom: 2px solid #3b82f6; padding-bottom: 12px; margin-top: 0; }
-    h2 { color: #1e40af; margin-top: 24px; }
+    h2 { color: #1e40af; margin-top: 24px; display: flex; align-items: center; justify-content: space-between; }
     h3 { color: #1e293b; }
     .badge { display: inline-block; padding: 4px 10px; border-radius: 9999px; font-size: 12px; font-weight: 600; background: #dbeafe; color: #1e40af; margin-right: 6px; }
+    .copy-btn { background: #3b82f6; color: white; border: none; padding: 6px 12px; border-radius: 6px; font-size: 13px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; }
+    .copy-btn:hover { background: #2563eb; }
+    .copy-btn.copied { background: #10b981; }
     .copy-block { position: relative; background: #0f172a; color: #f8fafc; padding: 20px; border-radius: 8px; font-family: monospace; font-size: 13px; white-space: pre-wrap; word-break: break-all; max-height: 350px; overflow-y: auto; }
     .preview-box { border: 2px dashed #94a3b8; border-radius: 8px; padding: 24px; background: #ffffff; }
     table { width: 100%; border-collapse: collapse; margin-top: 12px; }
@@ -17,40 +21,63 @@
     th { background: #f1f5f9; color: #475569; font-weight: 600; }
     .price-tag { font-size: 16px; font-weight: 700; color: #059669; }
     .faq-item { margin-bottom: 16px; padding: 12px; background: #f8fafc; border-left: 4px solid #3b82f6; border-radius: 4px; }
+    .flex-between { display: flex; justify-content: space-between; align-items: center; }
   </style>
+  <script>
+    function copyTarget(id, btn) {
+      const el = document.getElementById(id);
+      const text = el.innerText || el.textContent;
+      navigator.clipboard.writeText(text.trim()).then(() => {
+        const oldText = btn.innerText;
+        btn.innerText = '✅ Copié !';
+        btn.classList.add('copied');
+        setTimeout(() => {
+          btn.innerText = oldText;
+          btn.classList.remove('copied');
+        }, 2000);
+      });
+    }
+  </script>
 </head>
 <body>
 
   <h1>🚀 ComeUp - Fiche Prête à l'Emploi : Agents IA Autonomes, RAG Sécurisé &amp; Serveurs MCP</h1>
-  <p><strong>Auteur :</strong> Angelo Lock To Hang | <strong>Expérience :</strong> 6+ ans | <strong>Généré le :</strong> 09/10/2026</p>
+  <p><strong>Auteur :</strong> Angelo Lock To Hang | <strong>Expérience :</strong> 6+ ans | <strong>Généré le :</strong> 11/10/2026</p>
 
   <!-- PARAMÈTRES DU FORMULAIRE -->
   <div class="card">
-    <h2>📋 Informations Générales du Service</h2>
+    <h2>
+      <span>📋 Informations Générales du Service</span>
+    </h2>
     <table>
       <tr>
         <th style="width: 25%;">Champ ComeUp</th>
         <th>Valeur à coller</th>
+        <th style="width: 15%;">Action</th>
       </tr>
       <tr>
         <td><strong>Titre du service</strong></td>
-        <td><strong style="color: #2563eb; font-size: 16px;">Je vais créer votre Agent IA sur-mesure et système RAG sécurisé</strong> (63 caractères)</td>
+        <td><strong id="comeup-title" style="color: #2563eb; font-size: 16px;">Je vais créer votre Agent IA sur-mesure et système RAG sécurisé</strong> (63 caractères)</td>
+        <td><button class="copy-btn" onclick="copyTarget('comeup-title', this)">Copier</button></td>
       </tr>
       <tr>
         <td><strong>Catégorie</strong></td>
-        <td>Développement &amp; Programmation &gt; Intelligence Artificielle &amp; Automatisation</td>
+        <td id="comeup-category">Développement &amp; Programmation &gt; Intelligence Artificielle &amp; Automatisation</td>
+        <td><button class="copy-btn" onclick="copyTarget('comeup-category', this)">Copier</button></td>
       </tr>
       <tr>
         <td><strong>Prix de base</strong></td>
         <td><span class="price-tag">25 €</span> (Délai : 2 jours)</td>
+        <td></td>
       </tr>
       <tr>
         <td><strong>Description de base</strong></td>
-        <td>Analyse complète de vos besoins, évaluation de vos sources de données et remise d&#039;un cahier d&#039;architecture technique détaillé avec script d&#039;amorçage PoC.</td>
+        <td id="comeup-base-desc">Analyse complète de vos besoins, évaluation de vos sources de données et remise d&#039;un cahier d&#039;architecture technique détaillé avec script d&#039;amorçage PoC.</td>
+        <td><button class="copy-btn" onclick="copyTarget('comeup-base-desc', this)">Copier</button></td>
       </tr>
       <tr>
         <td><strong>Livrables inclus</strong></td>
-        <td>
+        <td colspan="2">
           <ul>
             <li>Document d&#039;architecture technique (stratégie de chunking, choix du vector store et du modèle)</li>
 <li>Analyse de faisabilité et estimation des coûts d&#039;API (OpenAI, Anthropic ou LLM local)</li>
@@ -63,7 +90,9 @@
 
   <!-- TABLEAU DES OPTIONS -->
   <div class="card">
-    <h2>⚡ Options Complémentaires</h2>
+    <h2>
+      <span>⚡ Options Complémentaires</span>
+    </h2>
     <table>
       <thead>
         <tr>
@@ -71,38 +100,42 @@
           <th>Tarif</th>
           <th>Délai add.</th>
           <th>Description & Livrables</th>
+          <th>Action</th>
         </tr>
       </thead>
       <tbody>
         
         <tr>
-          <td><strong>Option Pro - Pipeline RAG Complet &amp; Base Vectorielle</strong></td>
+          <td><strong id="opt-name-0">Option Pro - Pipeline RAG Complet &amp; Base Vectorielle</strong></td>
           <td><span class="price-tag">+150 €</span></td>
           <td>+3 jour(s)</td>
           <td>
-            <p>Mise en place d&#039;un pipeline RAG complet et sécurisé avec base vectorielle (ChromaDB / Pinecone), recherche sémantique hybride, calibration des prompts et tests d&#039;évaluation anti-hallucination.</p>
+            <p id="opt-desc-0">Mise en place d&#039;un pipeline RAG complet et sécurisé avec base vectorielle (ChromaDB / Pinecone), recherche sémantique hybride, calibration des prompts et tests d&#039;évaluation anti-hallucination.</p>
             <ul><li><small>Pipeline d&#039;ingestion documentaire (PDF, DOCX, TXT, CSV, JSON)</small></li><li><small>Configuration du Vector Store (ChromaDB, Pinecone ou PGVector)</small></li><li><small>Moteur de recherche sémantique hybride avec re-ranking</small></li><li><small>Prompt engineering avec guardrails anti-hallucination</small></li><li><small>Suite de tests d&#039;évaluation des réponses (Ragas ou métriques de pertinence)</small></li></ul>
           </td>
+          <td><button class="copy-btn" onclick="copyTarget('opt-desc-0', this)">Copier Desc</button></td>
         </tr>
         
         <tr>
-          <td><strong>Option Entreprise - Écosystème Agentique MCP &amp; Interface Web</strong></td>
+          <td><strong id="opt-name-1">Option Entreprise - Écosystème Agentique MCP &amp; Interface Web</strong></td>
           <td><span class="price-tag">+390 €</span></td>
           <td>+5 jour(s)</td>
           <td>
-            <p>Agent IA autonome orchestré (LangChain / LangGraph) avec outils personnalisés, serveur MCP (Model Context Protocol), mémoire long-terme, interface utilisateur moderne (React/FastAPI) et déploiement Docker.</p>
+            <p id="opt-desc-1">Agent IA autonome orchestré (LangChain / LangGraph) avec outils personnalisés, serveur MCP (Model Context Protocol), mémoire long-terme, interface utilisateur moderne (React/FastAPI) et déploiement Docker.</p>
             <ul><li><small>Tout le contenu de l&#039;Option Pro inclus</small></li><li><small>Orchestration d&#039;Agent IA autonome avec boucle de décision et exécution d&#039;outils</small></li><li><small>Serveur MCP dédié pour connecter l&#039;agent à vos APIs, bases de données ou CRM</small></li><li><small>Mémoire conversationnelle multi-sessions persistante</small></li><li><small>Interface web moderne (React / Tailwind) ou dashboard interactif</small></li><li><small>Conteneurisation Docker complète avec fichier docker-compose prêt à l&#039;emploi</small></li><li><small>Session vidéo Loom de 15 minutes expliquant le fonctionnement et la maintenance</small></li></ul>
           </td>
+          <td><button class="copy-btn" onclick="copyTarget('opt-desc-1', this)">Copier Desc</button></td>
         </tr>
         
         <tr>
-          <td><strong>Option Déploiement Cloud &amp; Monitoring</strong></td>
+          <td><strong id="opt-name-2">Option Déploiement Cloud &amp; Monitoring</strong></td>
           <td><span class="price-tag">+90 €</span></td>
           <td>+1 jour(s)</td>
           <td>
-            <p>Déploiement sur votre infrastructure serveur (VPS, AWS EC2, Cloud Run) avec variables d&#039;environnement sécurisées, logs et monitoring.</p>
+            <p id="opt-desc-2">Déploiement sur votre infrastructure serveur (VPS, AWS EC2, Cloud Run) avec variables d&#039;environnement sécurisées, logs et monitoring.</p>
             <ul><li><small>Configuration du serveur et déploiement du conteneur Docker</small></li><li><small>Sécurisation des clés d&#039;API et configuration HTTPS</small></li><li><small>Mise en place des logs de monitoring des requêtes</small></li></ul>
           </td>
+          <td><button class="copy-btn" onclick="copyTarget('opt-desc-2', this)">Copier Desc</button></td>
         </tr>
         
       </tbody>
@@ -111,9 +144,12 @@
 
   <!-- CODE HTML SOURCE POUR LA DESCRIPTION -->
   <div class="card">
-    <h2>📝 Description Complète (Code HTML Source à Copier)</h2>
+    <h2>
+      <span>📝 Description Complète (Code HTML Source à Copier)</span>
+      <button class="copy-btn" onclick="copyTarget('raw-html-description', this)">📋 Copier Tout le HTML</button>
+    </h2>
     <p><em>Copiez le code brut ci-dessous et collez-le directement en mode HTML dans l'éditeur de ComeUp :</em></p>
-    <div class="copy-block">&lt;h2&gt;🚀 Automatisez vos processus métier avec un Agent IA ou un système RAG sur-mesure&lt;/h2&gt;&lt;p&gt;Vous souhaitez interroger vos documents d&#039;entreprise sans risquer d&#039;hallucinations ? Vous voulez doter vos équipes d&#039;un assistant intelligent capable d&#039;exécuter des actions concrètes via vos APIs métier ?&lt;/p&gt;&lt;p&gt;Je conçois et développe des &lt;strong&gt;systèmes RAG (Retrieval-Augmented Generation)&lt;/strong&gt; de haute précision et des &lt;strong&gt;Agents IA autonomes&lt;/strong&gt; robustes, connectés à vos données privées et prêts pour la production.&lt;/p&gt;&lt;hr&gt;&lt;h3&gt;🎯 Pourquoi cette approche garantit des résultats concrets ?&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Zéro Hallucination :&lt;/strong&gt; Réponses ancrées exclusivement sur vos documents vérifiés avec citation des sources.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Confidentialité Totale :&lt;/strong&gt; Compatibilité avec des modèles propriétaires (OpenAI, Claude) ou 100% locaux (Ollama, Mistral, Llama 3) sans fuite de données.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Standards MCP :&lt;/strong&gt; Intégration du protocole Model Context Protocol d&#039;Anthropic pour un découplage propre de vos outils.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Architecture Pérenne :&lt;/strong&gt; Code Python propre, modulaire, documenté et conteneurisé sous Docker.&lt;/li&gt;&lt;/ul&gt;&lt;hr&gt;&lt;h3&gt;📦 Détail de l&#039;Offre de Base (25 €)&lt;/h3&gt;&lt;p&gt;Idéale pour cadrer sereinement votre projet avant le développement :&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Audit technique de vos documents et cas d&#039;usage.&lt;/li&gt;&lt;li&gt;Schéma d&#039;architecture technique (Vector Store, chunking, modèles recommandés).&lt;/li&gt;&lt;li&gt;Script d&#039;amorçage PoC en Python (validation de la chaîne d&#039;ingestion).&lt;/li&gt;&lt;li&gt;Livraison sous 48h.&lt;/li&gt;&lt;/ul&gt;&lt;hr&gt;&lt;h3&gt;⚡ Passez au niveau supérieur avec les Options Clé en Main&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Option Pro (+150 €) :&lt;/strong&gt; Pipeline RAG complet en production (ChromaDB/Pinecone, recherche hybride, prompts calibrés, tests de précision).&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Option Entreprise (+390 €) :&lt;/strong&gt; Écosystème Agentique complet avec serveur MCP, mémoire multi-sessions, interface web React et guide vidéo Loom.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Option Déploiement Cloud (+90 €) :&lt;/strong&gt; Installation et mise en ligne sur votre serveur avec conteneur Docker sécurisé.&lt;/li&gt;&lt;/ul&gt;&lt;hr&gt;&lt;h3&gt;🛡️ Mes Engagements Qualité&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Code 100% propriétaire :&lt;/strong&gt; Vous recevez l&#039;intégralité du code source avec droits d&#039;exploitation complets.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Accompagnement post-livraison :&lt;/strong&gt; Assistance de 7 jours incluse pour répondre à toutes vos questions d&#039;exploitation.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Expertise confirmée :&lt;/strong&gt; Plus de 6 années d&#039;expérience en conception logicielle et architectures scalables.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;em&gt;Une question ou un besoin spécifique ? Contactez-moi directement via la messagerie ComeUp pour échanger sur vos objectifs !&lt;/em&gt;&lt;/p&gt;</div>
+    <div id="raw-html-description" class="copy-block">&lt;h2&gt;🚀 Automatisez vos processus métier avec un Agent IA ou un système RAG sur-mesure&lt;/h2&gt;&lt;p&gt;Vous souhaitez interroger vos documents d&#039;entreprise sans risquer d&#039;hallucinations ? Vous voulez doter vos équipes d&#039;un assistant intelligent capable d&#039;exécuter des actions concrètes via vos APIs métier ?&lt;/p&gt;&lt;p&gt;Je conçois et développe des &lt;strong&gt;systèmes RAG (Retrieval-Augmented Generation)&lt;/strong&gt; de haute précision et des &lt;strong&gt;Agents IA autonomes&lt;/strong&gt; robustes, connectés à vos données privées et prêts pour la production.&lt;/p&gt;&lt;hr&gt;&lt;h3&gt;🎯 Pourquoi cette approche garantit des résultats concrets ?&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Zéro Hallucination :&lt;/strong&gt; Réponses ancrées exclusivement sur vos documents vérifiés avec citation des sources.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Confidentialité Totale :&lt;/strong&gt; Compatibilité avec des modèles propriétaires (OpenAI, Claude) ou 100% locaux (Ollama, Mistral, Llama 3) sans fuite de données.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Standards MCP :&lt;/strong&gt; Intégration du protocole Model Context Protocol d&#039;Anthropic pour un découplage propre de vos outils.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Architecture Pérenne :&lt;/strong&gt; Code Python propre, modulaire, documenté et conteneurisé sous Docker.&lt;/li&gt;&lt;/ul&gt;&lt;hr&gt;&lt;h3&gt;📦 Détail de l&#039;Offre de Base (25 €)&lt;/h3&gt;&lt;p&gt;Idéale pour cadrer sereinement votre projet avant le développement :&lt;/p&gt;&lt;ul&gt;&lt;li&gt;Audit technique de vos documents et cas d&#039;usage.&lt;/li&gt;&lt;li&gt;Schéma d&#039;architecture technique (Vector Store, chunking, modèles recommandés).&lt;/li&gt;&lt;li&gt;Script d&#039;amorçage PoC en Python (validation de la chaîne d&#039;ingestion).&lt;/li&gt;&lt;li&gt;Livraison sous 48h.&lt;/li&gt;&lt;/ul&gt;&lt;hr&gt;&lt;h3&gt;⚡ Passez au niveau supérieur avec les Options Clé en Main&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Option Pro (+150 €) :&lt;/strong&gt; Pipeline RAG complet en production (ChromaDB/Pinecone, recherche hybride, prompts calibrés, tests de précision).&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Option Entreprise (+390 €) :&lt;/strong&gt; Écosystème Agentique complet avec serveur MCP, mémoire multi-sessions, interface web React et guide vidéo Loom.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Option Déploiement Cloud (+90 €) :&lt;/strong&gt; Installation et mise en ligne sur votre serveur avec conteneur Docker sécurisé.&lt;/li&gt;&lt;/ul&gt;&lt;hr&gt;&lt;h3&gt;🛡️ Mes Engagements Qualité&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;&lt;strong&gt;Code 100% propriétaire :&lt;/strong&gt; Vous recevez l&#039;intégralité du code source avec droits d&#039;exploitation complets.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Accompagnement post-livraison :&lt;/strong&gt; Assistance de 7 jours incluse pour répondre à toutes vos questions d&#039;exploitation.&lt;/li&gt;&lt;li&gt;&lt;strong&gt;Expertise confirmée :&lt;/strong&gt; Plus de 6 années d&#039;expérience en conception logicielle et architectures scalables.&lt;/li&gt;&lt;/ul&gt;&lt;p&gt;&lt;em&gt;Une question ou un besoin spécifique ? Contactez-moi directement via la messagerie ComeUp pour échanger sur vos objectifs !&lt;/em&gt;&lt;/p&gt;</div>
   </div>
 
   <!-- APERÇU DU RENDU -->

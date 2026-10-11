@@ -1,20 +1,27 @@
 # 🎯 Fiverr Export : Agents IA Autonomes, RAG Sécurisé & Serveurs MCP
 
 ## 1. Gig Overview
-- **Gig Title (63/80 chars) :**
+- **Gig Full Title (63/80 chars) :**
 ```
 I will build custom AI agents and secure RAG pipelines with MCP
 ```
+
+- **Title to paste in Fiverr box (without 'I will') :**
+```
+build custom AI agents and secure RAG pipelines with MCP
+```
+
 - **Category :** AI Services > AI Agents & Applications
-- **Search Tags (5 tags required) :**
-  1. `ai-agent` (8 chars)
-  2. `rag-system` (10 chars)
-  3. `mcp-server` (10 chars)
-  4. `python-ai` (9 chars)
+- **Search Tags (5 tags required - letters and numbers only) :**
+  1. `ai agent` (8 chars)
+  2. `rag system` (10 chars)
+  3. `mcp server` (10 chars)
+  4. `python ai` (9 chars)
   5. `langchain` (9 chars)
+
 - **Tags (Comma-separated for quick paste) :**
 ```
-ai-agent, rag-system, mcp-server, python-ai, langchain
+ai agent, rag system, mcp server, python ai, langchain
 ```
 
 ---

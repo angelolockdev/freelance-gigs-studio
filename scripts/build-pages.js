@@ -1,0 +1,277 @@
+/**
+ * Freelance Gigs Studio - GitHub Pages Showcase Builder
+ * 
+ * Assembles a standalone static showcase website in `public-pages/`
+ * including Gigs catalog, exported HTML/Markdown files, Retina thumbnails,
+ * and integrated documentation for GitHub Pages.
+ */
+
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const ROOT_DIR = path.resolve(__dirname, '..');
+
+const OUT_DIR = path.join(ROOT_DIR, 'public-pages');
+const THUMBNAILS_SRC = path.join(ROOT_DIR, 'data/output/thumbnails');
+const EXPORTS_SRC = path.join(ROOT_DIR, 'data/output/exports');
+const ASSETS_SRC = path.join(ROOT_DIR, 'data/assets');
+const GIGS_SRC = path.join(ROOT_DIR, 'data/gigs');
+
+// 1. Nettoyer et initialiser le dossier de sortie
+if (fs.existsSync(OUT_DIR)) {
+  fs.rmSync(OUT_DIR, { recursive: true, force: true });
+}
+fs.mkdirSync(OUT_DIR, { recursive: true });
+
+// Helper pour copier récursivement
+function copyDirRecursive(src, dest) {
+  if (!fs.existsSync(src)) return;
+  fs.mkdirSync(dest, { recursive: true });
+  const entries = fs.readdirSync(src, { withFileTypes: true });
+  for (const entry of entries) {
+    const srcPath = path.join(src, entry.name);
+    const destPath = path.join(dest, entry.name);
+    if (entry.isDirectory()) {
+      copyDirRecursive(srcPath, destPath);
+    } else {
+      fs.copyFileSync(srcPath, destPath);
+    }
+  }
+}
+
+// 2. Copier les assets statiques
+copyDirRecursive(THUMBNAILS_SRC, path.join(OUT_DIR, 'thumbnails'));
+copyDirRecursive(EXPORTS_SRC, path.join(OUT_DIR, 'exports'));
+copyDirRecursive(ASSETS_SRC, path.join(OUT_DIR, 'assets'));
+
+// Copier le guide d'utilisation
+if (fs.existsSync(path.join(ROOT_DIR, 'GUIDE_UTILISATION.md'))) {
+  fs.copyFileSync(path.join(ROOT_DIR, 'GUIDE_UTILISATION.md'), path.join(OUT_DIR, 'GUIDE_UTILISATION.md'));
+}
+
+// 3. Charger les fiches JSON maîtresses
+const gigFiles = fs.readdirSync(GIGS_SRC).filter(f => f.endsWith('.json'));
+const gigs = gigFiles.map(f => JSON.parse(fs.readFileSync(path.join(GIGS_SRC, f), 'utf8')));
+
+// 4. Générer la page d'accueil HTML GitHub Pages
+const showcaseHtml = `<!DOCTYPE html>
+<html lang="fr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Freelance Gigs Studio • ComeUp & Fiverr — Angelo Lock To Hang</title>
+  <meta name="description" content="Catalogue de microservices et boîte à outils d'automatisation freelance pour ComeUp et Fiverr par Angelo Lock To Hang (Fullstack PHP/Laravel & Ingénieur IA).">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; background-color: #0b0f17; color: #f1f5f9; }
+    .font-mono { font-family: 'JetBrains Mono', monospace; }
+    .bg-grid { background-image: radial-gradient(rgba(56, 189, 248, 0.08) 1px, transparent 1px); background-size: 24px 24px; }
+  </style>
+</head>
+<body class="bg-grid min-h-screen flex flex-col selection:bg-cyan-500 selection:text-black">
+
+  <!-- Header / Navigation -->
+  <header class="border-b border-slate-800/80 bg-slate-950/80 backdrop-blur sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <span class="text-2xl">⚡</span>
+        <div>
+          <span class="font-extrabold text-white tracking-tight">Freelance Gigs Studio</span>
+          <span class="text-xs bg-cyan-950 text-cyan-400 border border-cyan-800/60 px-2 py-0.5 rounded-full ml-2 font-mono">v1.0.0</span>
+        </div>
+      </div>
+      <nav class="flex items-center gap-4 text-sm font-medium">
+        <a href="#catalogue" class="text-slate-300 hover:text-cyan-400 transition-colors">Catalogue Gigs</a>
+        <a href="#thumbnails" class="text-slate-300 hover:text-cyan-400 transition-colors">Miniatures HD</a>
+        <a href="#guide" class="text-slate-300 hover:text-cyan-400 transition-colors">Guide Rapide</a>
+        <a href="https://github.com/angelolockdev/freelance-gigs-studio" target="_blank" rel="noopener" class="bg-slate-800 hover:bg-slate-700 text-white px-3.5 py-1.5 rounded-lg border border-slate-700 flex items-center gap-2 transition-all">
+          <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          <span>GitHub</span>
+        </a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 text-center">
+    <div class="inline-flex items-center gap-2 bg-cyan-950/60 border border-cyan-800/80 px-3 py-1.5 rounded-full text-xs font-semibold text-cyan-300 mb-6">
+      <span>🚀</span> Boîte à Outils d'Automatisation & Création de Gigs Optimisés
+    </div>
+    <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight mb-4 leading-tight">
+      Vos Services <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">ComeUp & Fiverr</span><br>Prêts à Convertir.
+    </h1>
+    <p class="max-w-2xl mx-auto text-slate-400 text-lg sm:text-xl mb-8">
+      Par <strong>Angelo Lock To Hang</strong> — Développeur Fullstack PHP/Laravel (6+ ans) & Ingénieur en intégration d'Agents IA, RAG et protocoles MCP.
+    </p>
+    <div class="flex flex-wrap justify-center gap-4 text-sm font-semibold">
+      <a href="#catalogue" class="bg-cyan-500 hover:bg-cyan-400 text-slate-950 px-6 py-3 rounded-xl transition-all shadow-lg shadow-cyan-500/20">Explorer le Catalogue</a>
+      <a href="exports/INDEX.md" class="bg-slate-900 hover:bg-slate-800 text-white px-6 py-3 rounded-xl border border-slate-700 transition-all">Télécharger les Exports</a>
+    </div>
+  </section>
+
+  <!-- Section 1 : Catalogue des Gigs -->
+  <section id="catalogue" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-slate-800/60">
+    <div class="mb-10 text-center sm:text-left">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">🎯 Les Microservices Clés</h2>
+      <p class="text-slate-400">Offres optimisées pour la psychologie d'achat francophone (ComeUp) et internationale (Fiverr).</p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      ${gigs.map(gig => `
+        <div class="bg-slate-900/90 border border-slate-800 rounded-2xl overflow-hidden hover:border-slate-700 transition-all flex flex-col">
+          <!-- Thumbnail header preview -->
+          <div class="relative aspect-[16/9] bg-slate-950 overflow-hidden border-b border-slate-800">
+            <img src="thumbnails/${gig.id}-comeup-dark-tech.webp" alt="${gig.meta.name}" class="w-full h-full object-cover">
+            <span class="absolute top-3 left-3 bg-slate-950/80 backdrop-blur border border-slate-700 text-xs px-2.5 py-1 rounded-full font-mono text-cyan-400">
+              ${gig.category.toUpperCase()}
+            </span>
+          </div>
+
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="text-xl font-bold text-white mb-3">${gig.meta.name}</h3>
+              
+              <!-- ComeUp Summary -->
+              <div class="mb-4 p-3.5 bg-slate-950/70 rounded-xl border border-slate-800/80">
+                <div class="flex items-center justify-between text-xs font-semibold text-cyan-400 mb-1">
+                  <span>🇫🇷 COMEUP (FR)</span>
+                  <span class="text-slate-400">À partir de ${(gig.platforms.comeup.baseOffer || gig.platforms.comeup.base_offer)?.price || 25} €</span>
+                </div>
+                <p class="text-sm font-medium text-slate-200 line-clamp-2">« ${gig.platforms.comeup.title} »</p>
+                <div class="mt-2 flex items-center gap-2 text-xs text-slate-400">
+                  <span>3 options jusqu'à +${gig.platforms.comeup.options?.[gig.platforms.comeup.options.length - 1]?.price || 390} €</span>
+                  <span>•</span>
+                  <span>Livraison ${(gig.platforms.comeup.baseOffer || gig.platforms.comeup.base_offer)?.deliveryDays || 2} jours</span>
+                </div>
+              </div>
+
+              <!-- Fiverr Summary -->
+              <div class="mb-5 p-3.5 bg-slate-950/70 rounded-xl border border-slate-800/80">
+                <div class="flex items-center justify-between text-xs font-semibold text-emerald-400 mb-1">
+                  <span>🌍 FIVERR (EN)</span>
+                  <span class="text-slate-400">$${gig.platforms.fiverr.packages.basic.price} - $${gig.platforms.fiverr.packages.premium.price}</span>
+                </div>
+                <p class="text-sm font-medium text-slate-200 line-clamp-2">"${gig.platforms.fiverr.title}"</p>
+                <div class="mt-2 flex flex-wrap gap-1.5">
+                  ${(gig.platforms.fiverr.tags || gig.platforms.fiverr.search_tags || []).map(t => `<span class="bg-slate-900 border border-slate-800 text-[11px] px-2 py-0.5 rounded text-slate-300 font-mono">${t}</span>`).join('')}
+                </div>
+              </div>
+            </div>
+
+            <!-- Action buttons -->
+            <div class="flex flex-wrap gap-2.5 pt-2 border-t border-slate-800/60">
+              <a href="exports/${gig.id}-comeup.html" target="_blank" class="flex-1 text-center bg-cyan-950/80 hover:bg-cyan-900 text-cyan-300 border border-cyan-800/60 py-2 px-3 rounded-lg text-xs font-semibold transition-all">
+                Ouvrir ComeUp (HTML)
+              </a>
+              <a href="exports/${gig.id}-fiverr.md" target="_blank" class="flex-1 text-center bg-emerald-950/80 hover:bg-emerald-900 text-emerald-300 border border-emerald-800/60 py-2 px-3 rounded-lg text-xs font-semibold transition-all">
+                Voir Fiverr (MD)
+              </a>
+            </div>
+          </div>
+        </div>
+      `).join('')}
+    </div>
+  </section>
+
+  <!-- Section 2 : Miniatures Visuelles HD -->
+  <section id="thumbnails" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-slate-800/60">
+    <div class="mb-8 text-center sm:text-left">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-2">🎨 Galerie de Miniatures HD (1280 × 769 px)</h2>
+      <p class="text-slate-400">Rendu Retina 2560x1538 px en 2 déclinaisons A/B testing (Dark Tech et Navy Corporate).</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden group">
+        <a href="thumbnails/ai-rag-agent-dark-tech.png" target="_blank">
+          <img src="thumbnails/ai-rag-agent-dark-tech.webp" alt="AI RAG Dark Tech" class="w-full aspect-[16/9] object-cover group-hover:scale-105 transition-transform duration-300">
+        </a>
+        <div class="p-3 text-xs font-medium text-slate-300 flex justify-between items-center">
+          <span>AI Agents • Dark Tech</span>
+          <span class="text-cyan-400 font-mono text-[10px]">PNG / WebP</span>
+        </div>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden group">
+        <a href="thumbnails/ai-rag-agent-navy-corporate.png" target="_blank">
+          <img src="thumbnails/ai-rag-agent-navy-corporate.webp" alt="AI RAG Navy Corporate" class="w-full aspect-[16/9] object-cover group-hover:scale-105 transition-transform duration-300">
+        </a>
+        <div class="p-3 text-xs font-medium text-slate-300 flex justify-between items-center">
+          <span>AI Agents • Corporate</span>
+          <span class="text-cyan-400 font-mono text-[10px]">PNG / WebP</span>
+        </div>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden group">
+        <a href="thumbnails/laravel-fullstack-dark-tech.png" target="_blank">
+          <img src="thumbnails/laravel-fullstack-dark-tech.webp" alt="Laravel Dark Tech" class="w-full aspect-[16/9] object-cover group-hover:scale-105 transition-transform duration-300">
+        </a>
+        <div class="p-3 text-xs font-medium text-slate-300 flex justify-between items-center">
+          <span>Laravel • Dark Tech</span>
+          <span class="text-cyan-400 font-mono text-[10px]">PNG / WebP</span>
+        </div>
+      </div>
+      <div class="bg-slate-900 border border-slate-800 rounded-xl overflow-hidden group">
+        <a href="thumbnails/laravel-fullstack-navy-corporate.png" target="_blank">
+          <img src="thumbnails/laravel-fullstack-navy-corporate.webp" alt="Laravel Navy Corporate" class="w-full aspect-[16/9] object-cover group-hover:scale-105 transition-transform duration-300">
+        </a>
+        <div class="p-3 text-xs font-medium text-slate-300 flex justify-between items-center">
+          <span>Laravel • Corporate</span>
+          <span class="text-cyan-400 font-mono text-[10px]">PNG / WebP</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section 3 : Architecture & Guide Rapide -->
+  <section id="guide" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 border-t border-slate-800/60 mb-12">
+    <div class="bg-gradient-to-br from-slate-900 to-slate-950 border border-slate-800 rounded-2xl p-6 sm:p-10">
+      <h2 class="text-2xl sm:text-3xl font-bold text-white mb-6">⚙️ Comment Utiliser en Local ?</h2>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-sm">
+        <div class="p-4 bg-slate-950/80 border border-slate-800 rounded-xl">
+          <div class="text-cyan-400 font-bold mb-2">1. Lancer le Studio Web</div>
+          <p class="text-slate-400 mb-3">Double-cliquez sur <code class="text-slate-200 bg-slate-900 px-1 py-0.5 rounded font-mono">open-freelance-studio.bat</code> pour lancer le serveur local Express sur le port 3840.</p>
+        </div>
+        <div class="p-4 bg-slate-950/80 border border-slate-800 rounded-xl">
+          <div class="text-cyan-400 font-bold mb-2">2. Injection Chrome (CDP)</div>
+          <p class="text-slate-400 mb-3">Lancez <code class="text-slate-200 bg-slate-900 px-1 py-0.5 rounded font-mono">start-chrome-debug.bat</code>, connectez-vous, puis cliquez sur <strong>Injecter</strong> dans l'interface pour pré-remplir en mode brouillon sans risque de ban.</p>
+        </div>
+        <div class="p-4 bg-slate-950/80 border border-slate-800 rounded-xl">
+          <div class="text-cyan-400 font-bold mb-2">3. Radar d'Opportunités</div>
+          <p class="text-slate-400 mb-3">Scannez les 8 400+ postes et contrats internationaux via l'API MCP publique <code class="text-slate-200 bg-slate-900 px-1 py-0.5 rounded font-mono">aidevboard.com</code> et filtrez par Match Score.</p>
+        </div>
+      </div>
+
+      <div class="mt-6 flex flex-wrap gap-4 items-center justify-between text-xs text-slate-400 border-t border-slate-800/80 pt-4">
+        <span>📖 Guide d'utilisation détaillé : <a href="GUIDE_UTILISATION.md" class="text-cyan-400 hover:underline">GUIDE_UTILISATION.md</a></span>
+        <span class="font-mono text-emerald-400">101/101 Tests Automatisés Passants ✅</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="mt-auto border-t border-slate-800 bg-slate-950 py-8 text-center text-xs text-slate-500">
+    <div class="max-w-7xl mx-auto px-4">
+      <p>© 2026 <strong>Angelo Lock To Hang</strong> • Freelance Gigs Studio</p>
+      <p class="mt-1">Propulsé par Playwright, Model Context Protocol (MCP) & Tailwind CSS.</p>
+    </div>
+  </footer>
+
+</body>
+</html>`;
+
+fs.writeFileSync(path.join(OUT_DIR, 'index.html'), showcaseHtml, 'utf8');
+
+console.log(`\n======================================================`);
+console.log(`   GITHUB PAGES SHOWCASE - BUILD TERMINÉ AVEC SUCCÈS   `);
+console.log(`======================================================`);
+console.log(`📁 Répertoire de sortie : ${OUT_DIR}`);
+console.log(`📄 Page d'accueil       : ${path.join(OUT_DIR, 'index.html')}`);
+console.log(`🖼️ Miniatures copiées   : ${fs.readdirSync(path.join(OUT_DIR, 'thumbnails')).length} fichiers`);
+console.log(`📄 Exports copiés       : ${fs.readdirSync(path.join(OUT_DIR, 'exports')).length} fichiers`);
+console.log(`✨ Prêt pour publication sur GitHub Pages !\n`);

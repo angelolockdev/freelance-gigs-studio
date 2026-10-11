@@ -101,10 +101,10 @@
       "category": "AI Services",
       "subcategory": "AI Agents & Applications",
       "tags": [
-        "ai-agent",
-        "rag-system",
-        "mcp-server",
-        "python-ai",
+        "ai agent",
+        "rag system",
+        "mcp server",
+        "python ai",
         "langchain"
       ],
       "packages": {
